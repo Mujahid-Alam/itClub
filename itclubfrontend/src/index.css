@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+/* Aapke custom colors yahan define honge (v4 style) */
+@theme {
+  --color-it-blue: #003366;
+  --color-it-green: #28a745;
+  --color-it-light: #f8f9fa;
+  
+  --animate-marquee: marquee 25s linear infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0%); }
+    to { transform: translateX(-100%); }
+  }
+}
+
