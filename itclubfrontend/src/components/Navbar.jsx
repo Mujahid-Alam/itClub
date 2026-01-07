@@ -17,14 +17,36 @@ const Navbar = () => {
               <img 
                 src={logo} 
                 alt="ITCLUB Logo" 
-                className="h-9 w-auto object-contain" 
+                className="h-9 w-auto object-contain " 
               />
             </div>
 
             {/* Text: Mobile aur Desktop dono par dikhega */}
-            <span className="tracking-tighter text-sm lg:text-lg">
+            {/* <span className="tracking-tighter text-sm lg:text-lg">
               ITCLUB <span className="text-it-green">Foundation</span>
-            </span>
+            </span> */}
+
+
+             
+        {/* Logo Section - Slightly smaller */}
+        <div className="flex items-center shrink-0">
+          <img src={logo} alt="ITCLUB Logo" className="h-14 md:h-16 w-auto object-contain" />
+        </div>
+
+
+
+        {/* Registration Details - Clean & Medium Font */}
+        <div className="text-center md:text-left space-y-1 flex-1">
+          <p className="text-it-red font-black uppercase tracking-tight text-[2px] md:text-sm leading-tight">
+            Registered Under the Companies Act 2013, <br /> Ministry of Corporate Affairs
+          </p>
+          <p className="text-it-green font-bold italic underline decoration-it-blue text-[10px] md:text-xs">
+            An ISO 9001:2015 Certified Company
+          </p>
+          {/* <p className="text-gray-500 font-mono font-bold bg-gray-50 px-2 py-0.5 rounded border border-gray-200 inline-block text-[10px] md:text-[11px]">
+            CIN: U80302BR | GSTIN: 10AAPCT54
+          </p> */}
+        </div>
           </div>
 
           {/* Hamburger Button (Mobile Only) */}
@@ -45,26 +67,25 @@ const Navbar = () => {
           <ul className="hidden md:flex items-center gap-1">
             <li className="hover:bg-it-green/20 p-3 transition-all rounded-md"><Link to="/">Home</Link></li>
             <li className="hover:bg-it-green/20 p-3 transition-all rounded-md"><Link to="/about">About Us</Link></li>
-            <li className="hover:bg-it-green/20 p-3 transition-all rounded-md"><Link to="/skills">Skill Program</Link></li>
-            <li className="hover:bg-it-green/20 p-3 transition-all rounded-md"><Link to="/courses">Training/Course</Link></li>
-            <li className="hover:bg-it-green/20 p-3 transition-all rounded-md"><Link to="/gallery">Project Gallery</Link></li>
-            
-            <li className="ml-4">
-               <Link to="/contact" className="bg-it-green text-white px-5 py-2 rounded-full hover:bg-white hover:text-it-blue transition-all shadow-md">
-                 Contact
-               </Link>
-            </li>
+            <li className="hover:bg-it-green/20 p-3 transition-all rounded-md"><Link to="/skills">Our Work</Link></li>
+            <li className="hover:bg-it-green/20 p-3 transition-all rounded-md"><Link to="/courses">News&Media</Link></li>
+            <li className="hover:bg-it-green/20 p-3 transition-all rounded-md"><Link to="/gallery">Join Us</Link></li>
+            <li className="hover:bg-it-green/20 p-3 transition-all rounded-md"><Link to="/courses">Contact</Link></li>
+
           </ul>
         </div>
 
         {/* Mobile Menu List */}
         <div className={`${isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'} md:hidden overflow-hidden transition-all duration-500 bg-it-blue border-t border-it-green/20`}>
           <ul className="flex flex-col space-y-1 py-4 px-2">
-            <li><Link onClick={() => setIsOpen(false)} to="/" className="block px-6 py-3 hover:bg-it-green rounded-lg transition-colors">Home</Link></li>
-            <li><Link onClick={() => setIsOpen(false)} to="/about" className="block px-6 py-3 hover:bg-it-green rounded-lg transition-colors">About Us</Link></li>
-            <li><Link onClick={() => setIsOpen(false)} to="/skills" className="block px-6 py-3 hover:bg-it-green rounded-lg transition-colors">Skill Program</Link></li>
-            <li><Link onClick={() => setIsOpen(false)} to="/courses" className="block px-6 py-3 hover:bg-it-green rounded-lg transition-colors">Training/Course</Link></li>
-            <li><Link onClick={() => setIsOpen(false)} to="/gallery" className="block px-6 py-3 hover:bg-it-green rounded-lg transition-colors">Project Gallery</Link></li>
+            
+            <li className="hover:bg-it-green/20 p-3 transition-all rounded-md"><Link to="/">Home</Link></li>
+            <li className="hover:bg-it-green/20 p-3 transition-all rounded-md"><Link to="/about">About Us</Link></li>
+            <li className="hover:bg-it-green/20 p-3 transition-all rounded-md"><Link to="/skills">Our Work</Link></li>
+            <li className="hover:bg-it-green/20 p-3 transition-all rounded-md"><Link to="/courses">News&Media</Link></li>
+            <li className="hover:bg-it-green/20 p-3 transition-all rounded-md"><Link to="/gallery">Join Us</Link></li>
+            <li className="hover:bg-it-green/20 p-3 transition-all rounded-md"><Link to="/courses">Contact</Link></li>
+         
           </ul>
         </div>
       </div>

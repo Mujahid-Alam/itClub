@@ -23,17 +23,18 @@ const TopBar = () => (
       </div>
 
       {/* RIGHT: Ye sections Mobile par bhi dikhenge (Sabse important) */}
-      <div className="flex gap-2 md:gap-4 items-center">
+      <div className="flex gap-2 md:gap-7 items-center">
         <span className="hover:text-it-green cursor-pointer border-b border-transparent hover:border-it-green whitespace-nowrap">
-          View Certificate
+          840974414
         </span>
         
-        <span className="hover:text-it-green cursor-pointer border-b border-transparent hover:border-it-green whitespace-nowrap">
-          Apply for Business Partner
-        </span>
+<span className="hover:text-it-green cursor-pointer border-b border-transparent hover:border-it-green whitespace-nowrap lowercase">
+  itclubfoundation@gmail.com
+</span>
+
 
         <button className="bg-it-blue text-white px-2 md:px-3 py-0.5 rounded hover:bg-it-green transition-all text-[8px] md:text-[9px] active:scale-95 shrink-0">
-          Login
+          Donation
         </button>
       </div>
     </div>

@@ -23,7 +23,7 @@ const About = () => {
     <div className="min-h-screen bg-white flex flex-col">
       {/* Shared Layout */}
       <TopBar />
-      <Header />
+      {/* <Header /> */}
       <Navbar />
 
       {/* Page Content */}
