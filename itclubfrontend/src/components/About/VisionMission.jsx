@@ -7,7 +7,7 @@ const VisionMission = () => {
       {/* VISION CARD */}
       <div className="group relative bg-white p-10 md:p-12 rounded-[2rem] border border-it-blue/10 transition-all duration-500 hover:bg-it-blue cursor-pointer overflow-hidden shadow-sm hover:shadow-2xl">
         {/* Accent line */}
-        <div className="absolute top-0 left-0 w-1 h-full bg-it-green transform origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500"></div>
+        <div className="absolute top-0 left-0 w-1 h-full transform origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500"></div>
         
         <div className="relative z-10 h-full flex flex-col">
           <div className="flex items-center gap-3 mb-6">

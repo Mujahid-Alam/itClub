@@ -4,7 +4,7 @@ import { Autoplay, EffectFade } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/effect-fade';
-
+import Donate from '../pages/Donate';
 import pic1 from '../assets/pic1.webp';
 import pic2 from '../assets/pic2.webp';
 import pic3 from '../assets/pic3.webp';
@@ -95,74 +95,105 @@ const WelcomeSlider = () => {
     <section className="bg-white overflow-hidden h-auto md:h-[calc(100vh-70px)] flex flex-col font-sans">
       <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row flex-1 w-full overflow-hidden shadow-2xl my-2 rounded-xl border border-gray-100 bg-white">        
         
-        {/* LEFT CONTENT: 40% */}
-        <div className="w-full md:w-[40%] p-10 md:p-20 flex flex-col justify-center relative shrink-0 bg-white overflow-hidden">
-                  
-          {/* Background watermark */}
-          <div className="relative">
-            {/* Desktop view */}
-            <span className="hidden md:block absolute top-30 -right-45 -translate-y-1/2 opacity-[0.07] rotate-90 font-black blur-[0.7px] text-left text-4xl tracking-[0.2em]">
-              ITCLUB <br /> FOUNDATION
-            </span>
-            {/* Mobile view */}
-            <span className="block md:hidden absolute top-22 -right-35 opacity-[0.07] rotate-90 font-black blur-[0.7px] text-left text-4xl tracking-[0.2em]">
-              ITCLUB <br /> FOUNDATION
-            </span>
+{/* LEFT CONTENT: 40% */}
+<div className="w-full md:w-[40%] p-10 md:p-20 flex flex-col justify-center relative shrink-0 bg-white overflow-hidden">
 
-          </div>
+  {/* Background watermark */}
+  <div className="relative">
+    {/* Desktop view */}
+    <span className="hidden md:block absolute top-35 -right-45 -translate-y-1/2 opacity-[0.07] rotate-90 font-black blur-[0.7px] text-left text-4xl tracking-[0.2em]">
+      ITCLUB <br /> FOUNDATION
+    </span>
+    {/* Mobile view */}
+    <span className="block md:hidden absolute top-22 -right-35 opacity-[0.07] rotate-90 font-black blur-[0.7px] text-left text-4xl tracking-[0.2em]">
+      ITCLUB <br /> FOUNDATION
+    </span>
+  </div>
 
-          
-          <div
-            className="space-y-6 inline-block w-full cursor-default relative z-10"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
+  <div
+    className="space-y-6 inline-block w-full cursor-default relative z-10"
+    onMouseEnter={() => setIsPaused(true)}
+    onMouseLeave={() => setIsPaused(false)}
+  >
+    {/* Focus Area Section */}
+    <div className="space-y-1">
+      <div className="flex items-center gap-3">
+        <span className="w-6 h-0.5 bg-it-green rounded-full"></span>
+        <span className="text-it-green font-extrabold tracking-[0.4em] text-[10px] uppercase">
+          Focus Area {currentIndex + 1}
+        </span>
+      </div>
+      <p className="text-gray-400 font-bold text-[10px] uppercase tracking-widest pl-9">
+        {contentData[currentIndex].slogan}
+      </p>
+    </div>
+
+    {/* Title Section */}
+    <div className="space-y-2 pl-0 md:pl-2">
+      <h2 className="text-3xl lg:text-5xl font-black text-it-blue leading-tight uppercase tracking-tight">
+        {contentData[currentIndex].title} <br />
+        <span className="relative inline-block mt-1">
+          <span className="opacity-10 transition-all duration-500">
+            {contentData[currentIndex].sub}
+          </span>
+          <span
+            className="absolute top-0 left-0 overflow-hidden whitespace-nowrap text-it-green transition-all duration-100 ease-linear"
+            style={{ width: `${progress}%` }}
           >
-            <div className="space-y-1">
-              <div className="flex items-center gap-3">
-                <span className="w-6 h-0.5 bg-it-green rounded-full"></span>
-                <span className="text-it-green font-extrabold tracking-[0.4em] text-[10px] uppercase">
-                    Focus Area {currentIndex + 1}
-                </span>
-              </div>
-              <p className="text-gray-400 font-bold text-[10px] uppercase tracking-widest pl-9">
-                {contentData[currentIndex].slogan}
-              </p>
-            </div>
-            
-            <div className="space-y-2 pl-0 md:pl-2">
-              <h2 className="text-3xl lg:text-5xl font-black text-it-blue leading-tight uppercase tracking-tight">
-                {contentData[currentIndex].title} <br />
-                <span className="relative inline-block mt-1">
-                  <span className="opacity-10 transition-all duration-500">
-                    {contentData[currentIndex].sub}
-                  </span>
-                  <span 
-                    className="absolute top-0 left-0 overflow-hidden whitespace-nowrap text-it-green transition-all duration-100 ease-linear"
-                    style={{ width: `${progress}%` }}
-                  >
-                    {contentData[currentIndex].sub}
-                  </span>
-                </span>
-              </h2>
-            </div>
-            
-            <div className="pt-2 border-l-4 border-it-green/80 pl-6 max-w-sm"> 
-              <p className="text-sm md:text-lg text-gray-500 font-bold leading-relaxed tracking-tight">
-                {contentData[currentIndex].desc}
-              </p>
-              
-              <div className="mt-6 flex items-center gap-4 group cursor-pointer">
-                <div className="flex flex-col">
-                  <span className="text-[9px] font-black uppercase text-it-blue opacity-50 tracking-widest">Our Global Mission</span>
-                  <span className="text-xs font-bold text-gray-700">Better World, Brighter Future</span>
-                </div>
-                <div className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-it-green group-hover:border-it-green transition-all duration-300">
-                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="group-hover:text-white text-gray-400 transition-colors"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                </div>
-              </div>
-            </div>
-          </div>
+            {contentData[currentIndex].sub}
+          </span>
+        </span>
+      </h2>
+    </div>
+
+    {/* Description Section */}
+    <div className="pt-2 border-l-4 border-it-green/80 pl-6 w-full">
+      <p className="text-sm md:text-lg text-gray-500 font-bold leading-relaxed tracking-tight max-w-sm">
+        {contentData[currentIndex].desc}
+      </p>
+
+      {/* BOTTOM SECTION: MISSION + DONATE BUTTON */}
+      <div className="mt-10 flex items-center justify-between w-full">
+
+        {/* LEFT: MISSION INFO */}
+        <div className="flex flex-col">
+          <span className="text-[9px] font-black uppercase text-it-blue opacity-50 tracking-widest leading-none mb-1">
+            Our Global Mission
+          </span>
+          <span className="text-xs font-bold text-gray-700 whitespace-nowrap">
+            Better World, Brighter Future
+          </span>
         </div>
+
+        {/* RIGHT: ANIMATED DONATE BUTTON */}
+        <div className="flex items-center">
+          <style>
+            {`
+              @keyframes greenBlueLoop {
+                0%, 100% { background-color: #10b981; } 
+                50% { background-color: #1e3a8a; }      
+              }
+              .animate-donate-btn {
+                animation: greenBlueLoop 3s ease-in-out infinite;
+              }
+            `}
+          </style>
+
+          <a
+            href="/donate-now"
+            aria-label="Make a donation"
+            className="animate-donate-btn text-white text-[10px] font-black uppercase tracking-[0.2em] px-8 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 no-underline flex items-center justify-center whitespace-nowrap"
+          >
+            DONATE
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
         {/* RIGHT PHOTO GRID: 60% */}
         <div className="w-full md:w-[60%] bg-[#f8fafc] p-2 grid grid-cols-2 grid-rows-2 gap-2 h-96 md:h-full overflow-hidden">          
@@ -211,7 +242,22 @@ const WelcomeSlider = () => {
         </div>
 
       </div>
+
+      {/* TOP MOVING TEXT BAR */}
+      <div className="w-full h-7 bg-it-blue flex items-center overflow-hidden">
+        <marquee
+          direction="left"
+          scrollamount="4"
+          className="text-white text-[11px] font-bold tracking-widest"
+        >
+          🌍 ITCLUB FOUNDATION • Connecting Communities • Empowering People • Digital Inclusion for All 🌍
+        </marquee>
+      </div>
+
     </section>
+
+
+
   );
 };
 
