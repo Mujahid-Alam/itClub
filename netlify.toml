@@ -1,4 +1,12 @@
 [build]
+  # यह Netlify को itclubfrontend फोल्डर के अंदर भेज देगा
   base = "itclubfrontend"
+  
+  # यहाँ कमांड और पब्लिश डायरेक्टरी बेस फोल्डर के हिसाब से हैं
   command = "npm run build"
   publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
