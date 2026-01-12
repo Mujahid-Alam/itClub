@@ -17,9 +17,8 @@ const HomePage = () => (
     </div>
 
     <OurJourney />
-    <div className="w-full px-2 sm:px-25">
         <OurTeam />
-    </div>
+   
 
 
     <StatsSection/>

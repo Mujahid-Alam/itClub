@@ -5,6 +5,7 @@ import { Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import Donate from '../pages/Donate';
+
 import pic1 from '../assets/pic1.webp';
 import pic2 from '../assets/pic2.webp';
 import pic3 from '../assets/pic3.webp';
@@ -12,6 +13,13 @@ import pic4 from '../assets/pic4.webp';
 import pic5 from '../assets/pic5.webp';
 import pic6 from '../assets/pic6.webp';
 import pic7 from '../assets/pic7.webp';
+
+
+import health1 from '../assets/health/health1.jpeg';
+import health2 from '../assets/health/health2.webp';
+import health3 from '../assets/health/health3.jpeg';
+import health4 from '../assets/health/health4.jpeg';
+
 
 const contentData = [
   {
@@ -118,9 +126,9 @@ const WelcomeSlider = () => {
     {/* Focus Area Section */}
     <div className="space-y-1">
       <div className="flex items-center gap-3">
-        <span className="w-6 h-0.5 bg-it-green rounded-full"></span>
+        {/* <span className="w-6 h-0.5 bg-it-green rounded-full"></span> */}
         <span className="text-it-green font-extrabold tracking-[0.4em] text-[10px] uppercase">
-          Focus Area {currentIndex + 1}
+            {/* {currentIndex + 1}  Focus Area */}
         </span>
       </div>
       <p className="text-gray-400 font-bold text-[10px] uppercase tracking-widest pl-9">
@@ -224,21 +232,24 @@ const WelcomeSlider = () => {
           </div>
 
           <div className="grid grid-cols-2 gap-2 h-full">
+            {/* smallest card */}
             <div className="overflow-hidden rounded-2xl bg-gray-200 h-full shadow-sm">
               <Swiper {...sliderSettings(1200)}>
-                {[pic3, pic5, pic1, pic7].map((img, i) => (
+                {[health1, health2, health3, health4].map((img, i) => (
                   <SwiperSlide key={i}><img src={img} className="h-full w-full object-cover" alt="" /></SwiperSlide>
                 ))}
               </Swiper>
             </div>
+
             <div className="overflow-hidden rounded-2xl bg-gray-200 h-full shadow-sm">
               <Swiper {...sliderSettings(1800)}>
                 {[pic6, pic2, pic4, pic1].map((img, i) => (
                   <SwiperSlide key={i}><img src={img} className="h-full w-full object-cover" alt="" /></SwiperSlide>
                 ))}
               </Swiper>
-            </div>
+            </div>            
           </div>
+          
         </div>
 
       </div>

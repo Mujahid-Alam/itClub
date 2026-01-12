@@ -56,7 +56,7 @@ const OurTeam = () => {
 
         {/* ---- TEAM GRID ---- */}
         {/* Mobile: 2 cards | Desktop: 2 cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-3">
           {team.map((m, i) => (
             <div
               key={i}

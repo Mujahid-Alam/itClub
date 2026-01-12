@@ -83,7 +83,7 @@ const Navbar = () => {
             isOpen ? 'max-h-96 opacity-100 border-t border-white/10' : 'max-h-0 opacity-0'
           }`}
         >
-          <ul className="flex flex-col py-2">
+          <ul className="flex flex-col py-1">
             {navLinks.map((item) => (
               <li key={item.name}>
                 <Link 
