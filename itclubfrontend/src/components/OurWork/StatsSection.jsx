@@ -1,10 +1,10 @@
 import React from 'react';
 
 const stats = [
-  { label: "Lives Touched", val: "1.2M+" },
-  { label: "Active Projects", val: "45+" },
-  { label: "States Covered", val: "12" },
-  { label: "Volunteers", val: "5K+" }
+  { label: "Lives Touched", val: "1+ Lakh" },
+  { label: "Villages Reached", val: "100+" },
+  { label: "Active Projects", val: "8+" },
+  { label: "Indian State", val: "10+" }
 ];
 
 const StatsSection = () => {
@@ -18,7 +18,7 @@ const StatsSection = () => {
             Our Impact
           </p>
           <h2 className="text-3xl md:text-4xl font-black text-it-blue">
-            Numbers That Reflect Our Work
+            Our Growing Impact
           </h2>
         </div>
 
