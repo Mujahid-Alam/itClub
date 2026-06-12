@@ -39,7 +39,7 @@ const AboutUs = () => {
 
           {/* Team / Leadership Section */}
           <div className="pt-6 border-t border-gray-50">
-             <OurTeam />
+             {/* <OurTeam /> */}
           </div>
 
         </div>
