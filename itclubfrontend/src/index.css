@@ -14,3 +14,19 @@
   }
 }
 
+@import "tailwindcss";
+
+@theme {
+  /* एनीमेशन का नाम और उसकी स्पीड/टाइप सेट करें */
+  --animate-scroll: scroll 35s linear infinite;
+
+  /* कीफ़्रेम (Keyframes) डिफ़ाइन करें */
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}

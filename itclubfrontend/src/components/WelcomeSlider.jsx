@@ -255,7 +255,7 @@ const WelcomeSlider = () => {
       </div>
 
       {/* TOP MOVING TEXT BAR */}
-      <div className="w-full h-7 bg-it-blue flex items-center overflow-hidden">
+      {/* <div className="w-full h-7 bg-it-blue flex items-center overflow-hidden">
         <marquee
           direction="left"
           scrollamount="4"
@@ -263,7 +263,7 @@ const WelcomeSlider = () => {
         >
           🌍 ITCLUB FOUNDATION • Connecting Communities • Empowering People • Digital Inclusion for All 🌍
         </marquee>
-      </div>
+      </div> */}
 
     </section>
 
