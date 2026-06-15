@@ -1,51 +1,84 @@
-import { useState } from "react";
-import { FaTools } from "react-icons/fa";
+import { useState, useEffect } from "react";
 
-const UpdateNotice = () => {
+export default function UpdateNotice() {
   const [show, setShow] = useState(true);
+  const [progress, setProgress] = useState(100);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isHovered) {
+        setProgress((prev) => {
+          if (prev <= 2) {
+            clearInterval(interval);
+            setShow(false);
+            return 0;
+          }
+          return prev - 2;
+        });
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [isHovered]);
 
   if (!show) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[9999] px-4">
-      <div className="bg-white max-w-xl w-full rounded-2xl shadow-2xl overflow-hidden">
-
+    <div className="fixed inset-0 flex items-center justify-center z-[9999] px-4">
+      <div
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className="bg-slate-900 max-w-md w-full rounded-2xl shadow-2xl overflow-hidden border border-slate-800 text-slate-300"
+      >
         {/* Header */}
-        <div className="bg-[rgb(29,63,180)] px-8 py-6 text-center">
-          <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-white/15 flex items-center justify-center">
-            <FaTools className="text-white text-2xl" />
-          </div>
+        <div className="px-4 py-4 text-center border-b border-slate-700">
+          <img
+            src="/logo.png"
+            alt="IT CLUB FOUNDATION Logo"
+            className="h-12 md:h-16 w-auto mx-auto mb-3"
+          />
 
-          <h2 className="text-2xl md:text-3xl font-bold text-white">
-            Website Enhancement in Progress
+          <h2 className="text-xl md:text-2xl font-bold text-slate-50">
+            Website Update Notice
           </h2>
         </div>
 
         {/* Content */}
-        <div className="p-8 text-center">
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Thank you for visiting ITCLUB Foundation.
-            We are currently improving our website by adding new programs,
-            resources, and features to provide a better experience for our
-            visitors and supporters.
+        <div className="p-5 text-center">
+          <p className="text-sm text-slate-300 leading-relaxed mb-4">
+            Welcome to{" "}
+            <strong className="text-slate-50">ITCLUB Foundation</strong>.
+            Our website is currently being updated.
           </p>
 
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6 text-sm text-gray-600">
-            Some sections may still be under development, while the rest of
-            the website remains accessible for browsing.
+          {/* Progress Bar */}
+          <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden mb-3">
+            <div
+              className="h-full bg-[#0045d4] transition-all duration-100"
+              style={{ width: `${progress}%` }}
+            />
           </div>
 
+          {/* Status */}
+          <p className="text-xs text-slate-500 mb-4">
+            {isHovered
+              ? "Auto close paused"
+              : `Closing in ${Math.max(
+                  1,
+                  Math.ceil((progress / 100) * 5)
+                )} seconds`}
+          </p>
+
+          {/* Button */}
           <button
             onClick={() => setShow(false)}
-            className="bg-[#fe8d02] hover:bg-orange-600 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 shadow-lg hover:scale-105"
+            className="bg-[#0045d4] hover:bg-[#0038ad] text-white font-medium px-6 py-2.5 rounded-lg transition-all duration-300"
           >
-            Continue to Website
+            Continue
           </button>
         </div>
-
       </div>
     </div>
   );
-};
-
-export default UpdateNotice;
+}

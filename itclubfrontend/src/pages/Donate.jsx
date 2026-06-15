@@ -3,7 +3,7 @@ import TopBar from '../components/TopBar';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import HeroSection from '../components/HeroSection';
-import qr from '../assets/qr.jpeg';
+
 
 const Donate = () => {
   const [amount, setAmount] = useState('');
@@ -62,8 +62,7 @@ const Donate = () => {
                 {/* <div className="absolute top-0 left-0 w-full h-0.5 bg-it-green"></div> */}
                 
                 <div className="relative inline-block p-3 bg-white rounded-3xl shadow-inner border border-gray-100 mt-2">
-                  <img src={qr} alt="UPI QR" className="w-74 h-44 object-contain rounded-xl" />
-                  
+                  <img src="qr.jpeg" alt="QR problem" className="w-full h-full object-cover"/>
                   <div className="absolute top-0 left-0 w-10 h-10 border-t-4 border-l-4 border-it-green rounded-tl-3xl"></div>
                   <div className="absolute bottom-0 right-0 w-10 h-10 border-b-4 border-r-4 border-it-green rounded-br-3xl"></div>
                 </div>

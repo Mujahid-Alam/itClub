@@ -6,67 +6,101 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import Donate from '../pages/Donate';
 
-import pic1 from '../assets/pic1.webp';
-import pic2 from '../assets/pic2.webp';
-import pic3 from '../assets/pic3.webp';
-import pic4 from '../assets/pic4.webp';
-import pic5 from '../assets/pic5.webp';
-import pic6 from '../assets/pic6.webp';
-import pic7 from '../assets/pic7.webp';
+const categoryImages = {
+  Skill: [
+    "/Skill/skill1.png",
+    "/Skill/skill2.png",
+    "/Skill/skill3.png",
+    "/Skill/skill4.png",
+  ],
 
+  Education: [
+    "/Education/education1.png",
+    "/Education/education2.png",
+    "/Education/education3.png",
+    "/Education/education4.png",
+  ],
 
-import health1 from '../assets/health/health1.jpeg';
-import health2 from '../assets/health/health2.webp';
-import health3 from '../assets/health/health3.jpeg';
-import health4 from '../assets/health/health4.jpeg';
+  Women: [
+    "/Women/women1.png",
+    "/Women/women2.png",
+    "/Women/women3.png",
+    "/Women/women4.png",
+  ],
+
+  Health: [
+    "/Health/health1.png",
+    "/Health/health2.png",
+    "/Health/health3.png",
+    "/Health/health4.png",
+  ],
+
+  Environment: [
+    "/Environment/environment1.png",
+    "/Environment/environment2.png",
+    "/Environment/environment3.png",
+    "/Environment/environment4.png",
+  ],
+
+  Livelihood: [
+    "/Livelihood/livelihood1.png",
+    "/Livelihood/livelihood2.png",
+    "/Livelihood/livelihood3.png",
+    "/Livelihood/livelihood4.png",
+  ],
+};
+
 
 
 const contentData = [
+
   {
     title: "Skill",
     sub: "Development",
     slogan: "Building Sustainable Futures",
-    desc: "Empowering young minds through modern education, skill training, and vocational programs that create employment and sustainable growth."
+    desc: "Empowering youth with practical skills, vocational training, and career opportunities to enhance employability and self-reliance."
   },
   {
-    title: "Digital",
-    sub: "Innovation",
-    slogan: "Tech for Social Good",
-    desc: "Bridging the digital divide by delivering innovative technology solutions, digital literacy, and smart tools to strengthen grassroots communities."
+    title: "Education",
+    sub: "& Literacy",
+    slogan: "Learning for All",
+    desc: "Promoting quality education and literacy initiatives to ensure equal learning opportunities for children, youth, and communities."
   },
   {
     title: "Women",
     sub: "Empowerment",
-    slogan: "Leaders of Tomorrow",
-    desc: "Supporting women to lead with confidence through education, entrepreneurship, leadership training, and equal opportunities across all sectors."
+    slogan: "Empowering Change Makers",
+    desc: "Supporting women through education, entrepreneurship, leadership development, and economic empowerment programs."
   },
   {
-    title: "Quality",
-    sub: "Healthcare",
-    slogan: "Health for Everyone",
-    desc: "Ensuring access to quality healthcare services, preventive awareness programs, and medical support for underserved and vulnerable populations."
+    title: "Health",
+    sub: "& Nutrition",
+    slogan: "Healthy Communities, Stronger Futures",
+    desc: "Improving access to healthcare, nutrition, and wellness programs for underserved and vulnerable populations."
   },
   {
-    title: "Nature",
-    sub: "Preservation",
-    slogan: "Green Earth, Clean Air",
-    desc: "Protecting nature by promoting environmental awareness, conservation initiatives, and sustainable practices for a cleaner, greener future."
+    title: "Environment",
+    sub: "Care",
+    slogan: "Towards a Greener Tomorrow",
+    desc: "Encouraging environmental responsibility through awareness campaigns, conservation initiatives, and sustainable practices."
   },
   {
-    title: "Cultural",
-    sub: "Heritage",
-    slogan: "Rooted in Tradition",
-    desc: "Preserving cultural heritage by celebrating local traditions, art forms, and creative expressions that define our diverse identity."
-  },
+    title: "Livelihood",
+    sub: "Support",
+    slogan: "Creating Opportunities for Growth",
+    desc: "Strengthening livelihoods through skill enhancement, entrepreneurship support, and sustainable income-generation opportunities."
+  }
+
 ];
 
-const allPics = [pic1, pic2, pic3, pic4, pic5, pic6, pic7];
 
 const WelcomeSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const duration = 5000;
+  const currentImages =
+  categoryImages[contentData[currentIndex].title] || [];
 
   useEffect(() => {
     let interval;
@@ -103,111 +137,110 @@ const WelcomeSlider = () => {
     <section className="bg-white overflow-hidden h-auto md:h-[calc(100vh-70px)] flex flex-col font-sans">
       <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row flex-1 w-full overflow-hidden shadow-2xl my-2 rounded-xl border border-gray-100 bg-white">        
         
-{/* LEFT CONTENT: 40% */}
-<div className="w-full md:w-[40%] p-10 md:p-20 flex flex-col justify-center relative shrink-0 bg-white overflow-hidden">
+        {/* LEFT CONTENT: 40% */}
+        <div className="w-full md:w-[40%] p-10 md:p-20 flex flex-col justify-center relative shrink-0 bg-white overflow-hidden">
 
-  {/* Background watermark */}
-  <div className="relative">
-    {/* Desktop view */}
-    <span className="hidden md:block absolute top-35 -right-45 -translate-y-1/2 opacity-[0.07] rotate-90 font-black blur-[0.7px] text-left text-4xl tracking-[0.2em]">
-      ITCLUB <br /> FOUNDATION
-    </span>
-    {/* Mobile view */}
-    <span className="block md:hidden absolute top-22 -right-35 opacity-[0.07] rotate-90 font-black blur-[0.7px] text-left text-4xl tracking-[0.2em]">
-      ITCLUB <br /> FOUNDATION
-    </span>
-  </div>
+          {/* Background watermark */}
+          <div className="relative">
+            {/* Desktop view */}
+            <span className="hidden md:block absolute top-35 -right-45 -translate-y-1/2 opacity-[0.07] rotate-90 font-black blur-[0.7px] text-left text-4xl tracking-[0.2em]">
+              ITCLUB <br /> FOUNDATION
+            </span>
+            {/* Mobile view */}
+            <span className="block md:hidden absolute top-22 -right-35 opacity-[0.07] rotate-90 font-black blur-[0.7px] text-left text-4xl tracking-[0.2em]">
+              ITCLUB <br /> FOUNDATION
+            </span>
+          </div>
 
-  <div
-    className="space-y-6 inline-block w-full cursor-default relative z-10"
-    onMouseEnter={() => setIsPaused(true)}
-    onMouseLeave={() => setIsPaused(false)}
-  >
-    {/* Focus Area Section */}
-    <div className="space-y-1">
-      <div className="flex items-center gap-3">
-        {/* <span className="w-6 h-0.5 bg-it-green rounded-full"></span> */}
-        <span className="text-it-green font-extrabold tracking-[0.4em] text-[10px] uppercase">
-            {/* {currentIndex + 1}  Focus Area */}
-        </span>
-      </div>
-      <p className="text-gray-400 font-bold text-[10px] uppercase tracking-widest pl-9">
-        {contentData[currentIndex].slogan}
-      </p>
-    </div>
-
-    {/* Title Section */}
-    <div className="space-y-2 pl-0 md:pl-2">
-      <h2 className="text-3xl lg:text-5xl font-black text-it-blue leading-tight uppercase tracking-tight">
-        {contentData[currentIndex].title} <br />
-        <span className="relative inline-block mt-1">
-          <span className="opacity-10 transition-all duration-500">
-            {contentData[currentIndex].sub}
-          </span>
-          <span
-            className="absolute top-0 left-0 overflow-hidden whitespace-nowrap text-it-green transition-all duration-100 ease-linear"
-            style={{ width: `${progress}%` }}
+          <div
+            className="space-y-6 inline-block w-full cursor-default relative z-10"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
           >
-            {contentData[currentIndex].sub}
-          </span>
-        </span>
-      </h2>
-    </div>
+            {/* Focus Area Section */}
+            <div className="space-y-1">
+              <div className="flex items-center gap-3">
+                {/* <span className="w-6 h-0.5 bg-it-green rounded-full"></span> */}
+                <span className="text-it-green font-extrabold tracking-[0.4em] text-[10px] uppercase">
+                    {/* {currentIndex + 1}  Focus Area */}
+                </span>
+              </div>
+              <p className="text-gray-400 font-bold text-[10px] uppercase tracking-widest pl-9">
+                {contentData[currentIndex].slogan}
+              </p>
+            </div>
 
-    {/* Description Section */}
-    <div className="pt-2 border-l-4 border-it-green/80 pl-6 w-full">
-      <p className="text-sm md:text-lg text-gray-500 font-bold leading-relaxed tracking-tight max-w-sm">
-        {contentData[currentIndex].desc}
-      </p>
+            {/* Title Section */}
+            <div className="space-y-2 pl-0 md:pl-2">
+              <h2 className="text-3xl lg:text-5xl font-black text-it-blue leading-tight uppercase tracking-tight">
+                {contentData[currentIndex].title} <br />
+                <span className="relative inline-block mt-1">
+                  <span className="opacity-10 transition-all duration-500">
+                    {contentData[currentIndex].sub}
+                  </span>
+                  <span
+                    className="absolute top-0 left-0 overflow-hidden whitespace-nowrap text-it-green transition-all duration-100 ease-linear"
+                    style={{ width: `${progress}%` }}
+                  >
+                    {contentData[currentIndex].sub}
+                  </span>
+                </span>
+              </h2>
+            </div>
 
-      {/* BOTTOM SECTION: MISSION + DONATE BUTTON */}
-      <div className="mt-10 flex items-center justify-between w-full">
+            {/* Description Section */}
+            <div className="pt-2 border-l-4 border-it-green/80 pl-6 w-full">
+              <p className="text-sm md:text-lg text-gray-500 font-bold leading-relaxed tracking-tight max-w-sm">
+                {contentData[currentIndex].desc}
+              </p>
 
-        {/* LEFT: MISSION INFO */}
-        <div className="flex flex-col">
-          <span className="text-[9px] font-black uppercase text-it-blue opacity-50 tracking-widest leading-none mb-1">
-            Our Global Mission
-          </span>
-          <span className="text-xs font-bold text-gray-700 whitespace-nowrap">
-            Better World, Brighter Future
-          </span>
+              {/* BOTTOM SECTION: MISSION + DONATE BUTTON */}
+              <div className="mt-10 flex items-center justify-between w-full">
+
+                {/* LEFT: MISSION INFO */}
+                <div className="flex flex-col">
+                  <span className="text-[9px] font-black uppercase text-it-blue opacity-50 tracking-widest leading-none mb-1">
+                    Our Global Mission
+                  </span>
+                  <span className="text-xs font-bold text-gray-700 whitespace-nowrap">
+                    Better World, Brighter Future
+                  </span>
+                </div>
+
+                {/* RIGHT: ANIMATED DONATE BUTTON */}
+                <div className="flex items-center">
+                  <style>
+                    {`
+                      @keyframes greenBlueLoop {
+                        0%, 100% { background-color: #10b981; } 
+                        50% { background-color: #1e3a8a; }      
+                      }
+                      .animate-donate-btn {
+                        animation: greenBlueLoop 3s ease-in-out infinite;
+                      }
+                    `}
+                  </style>
+
+                  <a
+                    href="/donate-now"
+                    aria-label="Make a donation"
+                    className="animate-donate-btn text-white text-[10px] font-black uppercase tracking-[0.2em] px-8 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 no-underline flex items-center justify-center whitespace-nowrap"
+                  >
+                    DONATE
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
         </div>
-
-        {/* RIGHT: ANIMATED DONATE BUTTON */}
-        <div className="flex items-center">
-          <style>
-            {`
-              @keyframes greenBlueLoop {
-                0%, 100% { background-color: #10b981; } 
-                50% { background-color: #1e3a8a; }      
-              }
-              .animate-donate-btn {
-                animation: greenBlueLoop 3s ease-in-out infinite;
-              }
-            `}
-          </style>
-
-          <a
-            href="/donate-now"
-            aria-label="Make a donation"
-            className="animate-donate-btn text-white text-[10px] font-black uppercase tracking-[0.2em] px-8 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 no-underline flex items-center justify-center whitespace-nowrap"
-          >
-            DONATE
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
-
 
 
         {/* RIGHT PHOTO GRID: 60% */}
         <div className="w-full md:w-[60%] bg-[#f8fafc] p-2 grid grid-cols-2 grid-rows-2 gap-2 h-96 md:h-full overflow-hidden">          
           <div className="relative overflow-hidden rounded-2xl bg-gray-200 h-full shadow-sm">
             <Swiper {...sliderSettings(1500)}>
-              {allPics.map((img, i) => (
+              {currentImages.map((img, i) => (
                 <SwiperSlide key={i}><img src={img} className="h-full w-full object-cover" alt="" /></SwiperSlide>
               ))}
             </Swiper>
@@ -225,7 +258,7 @@ const WelcomeSlider = () => {
 
           <div className="relative overflow-hidden rounded-2xl bg-gray-200 h-full shadow-sm">
             <Swiper {...sliderSettings(2000)}>
-              {[...allPics].reverse().map((img, i) => (
+              {[...currentImages].reverse().map((img, i) => (
                 <SwiperSlide key={i}><img src={img} className="h-full w-full object-cover" alt="" /></SwiperSlide>
               ))}
             </Swiper>
@@ -235,7 +268,7 @@ const WelcomeSlider = () => {
             {/* smallest card */}
             <div className="overflow-hidden rounded-2xl bg-gray-200 h-full shadow-sm">
               <Swiper {...sliderSettings(1200)}>
-                {[health1, health2, health3, health4].map((img, i) => (
+                  {currentImages.map((img, i) => (
                   <SwiperSlide key={i}><img src={img} className="h-full w-full object-cover" alt="" /></SwiperSlide>
                 ))}
               </Swiper>
@@ -243,7 +276,7 @@ const WelcomeSlider = () => {
 
             <div className="overflow-hidden rounded-2xl bg-gray-200 h-full shadow-sm">
               <Swiper {...sliderSettings(1800)}>
-                {[pic6, pic2, pic4, pic1].map((img, i) => (
+                {[...currentImages].reverse().map((img, i) => (
                   <SwiperSlide key={i}><img src={img} className="h-full w-full object-cover" alt="" /></SwiperSlide>
                 ))}
               </Swiper>
@@ -253,17 +286,6 @@ const WelcomeSlider = () => {
         </div>
 
       </div>
-
-      {/* TOP MOVING TEXT BAR */}
-      {/* <div className="w-full h-7 bg-it-blue flex items-center overflow-hidden">
-        <marquee
-          direction="left"
-          scrollamount="4"
-          className="text-white text-[11px] font-bold tracking-widest"
-        >
-          🌍 ITCLUB FOUNDATION • Connecting Communities • Empowering People • Digital Inclusion for All 🌍
-        </marquee>
-      </div> */}
 
     </section>
 

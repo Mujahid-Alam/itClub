@@ -139,11 +139,14 @@ const Navbar = () => {
           <ul className="hidden md:flex items-stretch gap-1">
             {navLinks.map((item) => (
               <li key={item.name} className="relative group flex">
-
-                <Link
-                  to={item.path}
-                  className="relative px-4 h-full flex items-center gap-1 transition-colors duration-150"
-                >
+                  <Link
+                    to={item.path}
+                    className={`relative flex items-center gap-1 transition-colors duration-150 ${
+                      item.name === "Donation"
+                        ? "bg-orange-500 text-white rounded-md px-4 py-1.5 h-8 self-center hover:bg-orange-600"
+                        : "px-4 h-full"
+                    }`}
+                  >
                   <span className="group-hover:text-it-green transition-colors duration-150">
                     {item.name}
                   </span>
@@ -225,83 +228,87 @@ const Navbar = () => {
 
         </div>
 
-{/* Mobile Menu */}
-<div
-  className={`md:hidden overflow-hidden transition-all duration-300 ${
-    isOpen ? "max-h-[1200px] opacity-100" : "max-h-0 opacity-0"
-  }`}
->
-  <ul className="bg-white border-t border-gray-200">
+        {/* Mobile Menu */}
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ${
+            isOpen ? "max-h-[1200px] opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <ul className="bg-white border-t border-gray-200">
 
-    {navLinks.map((item) => (
-      <li key={item.name} className="border-b border-gray-100">
+            {navLinks.map((item) => (
+              <li key={item.name} className="border-b border-gray-100">
 
-        {item.submenu ? (
-          <>
-            <button
-              onClick={() =>
-                setOpenMenu(
-                  openMenu === item.name ? null : item.name
-                )
-              }
-              className="w-full flex items-center justify-between px-4 py-4 text-left font-semibold uppercase text-[13px]"
-            >
-              {item.name}
+                {item.submenu ? (
+                  <>
+                    <button
+                      onClick={() =>
+                        setOpenMenu(
+                          openMenu === item.name ? null : item.name
+                        )
+                      }
+                      className="w-full flex items-center justify-between px-4 py-4 text-left font-semibold uppercase text-[13px]"
+                    >
+                      {item.name}
 
-              <svg
-                className={`w-4 h-4 transition-transform ${
-                  openMenu === item.name ? "rotate-180" : ""
-                }`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
+                      <svg
+                        className={`w-4 h-4 transition-transform ${
+                          openMenu === item.name ? "rotate-180" : ""
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
 
-            <div
-              className={`overflow-hidden transition-all duration-300 ${
-                openMenu === item.name
-                  ? "max-h-[700px]"
-                  : "max-h-0"
-              }`}
-            >
-              {item.submenu.map((sub) => (
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ${
+                        openMenu === item.name
+                          ? "max-h-[700px]"
+                          : "max-h-0"
+                      }`}
+                    >
+                      {item.submenu.map((sub) => (
+                        <Link
+                          key={sub.name}
+                          to={sub.path}
+                          onClick={() => {
+                            setIsOpen(false);
+                            setOpenMenu(null);
+                          }}
+                          className="block pl-8 pr-4 py-3 text-[12px] bg-gray-50 hover:bg-gray-100"
+                        >
+                          {sub.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </>
+                ) : (
                 <Link
-                  key={sub.name}
-                  to={sub.path}
-                  onClick={() => {
-                    setIsOpen(false);
-                    setOpenMenu(null);
-                  }}
-                  className="block pl-8 pr-4 py-3 text-[12px] bg-gray-50 hover:bg-gray-100"
+                  to={item.path}
+                  onClick={() => setIsOpen(false)}
+                  className={`block px-4 py-4 font-semibold uppercase text-[13px] ${
+                    item.name === "Donation"
+                      ? "bg-orange-500 text-white mx-2 my-2 rounded-md py-1 text-center hover:bg-orange-600"
+                      : ""
+                  }`}
                 >
-                  {sub.name}
+                  {item.name}
                 </Link>
-              ))}
-            </div>
-          </>
-        ) : (
-          <Link
-            to={item.path}
-            onClick={() => setIsOpen(false)}
-            className="block px-4 py-4 font-semibold uppercase text-[13px]"
-          >
-            {item.name}
-          </Link>
-        )}
+                )}
 
-      </li>
-    ))}
+              </li>
+            ))}
 
-  </ul>
-</div>
+          </ul>
+        </div>
 
 
 
