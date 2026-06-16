@@ -13,35 +13,30 @@ const categoryImages = {
     "/Skill/skill3.png",
     "/Skill/skill4.png",
   ],
-
   Education: [
     "/Education/education1.png",
     "/Education/education2.png",
     "/Education/education3.png",
     "/Education/education4.png",
   ],
-
   Women: [
     "/Women/women1.png",
     "/Women/women2.png",
     "/Women/women3.png",
     "/Women/women4.png",
   ],
-
   Health: [
     "/Health/health1.png",
     "/Health/health2.png",
     "/Health/health3.png",
     "/Health/health4.png",
   ],
-
   Environment: [
     "/Environment/environment1.png",
     "/Environment/environment2.png",
     "/Environment/environment3.png",
     "/Environment/environment4.png",
   ],
-
   Livelihood: [
     "/Livelihood/livelihood1.png",
     "/Livelihood/livelihood2.png",
@@ -50,10 +45,7 @@ const categoryImages = {
   ],
 };
 
-
-
 const contentData = [
-
   {
     title: "Skill",
     sub: "Development",
@@ -90,17 +82,16 @@ const contentData = [
     slogan: "Creating Opportunities for Growth",
     desc: "Strengthening livelihoods through skill enhancement, entrepreneurship support, and sustainable income-generation opportunities."
   }
-
 ];
-
 
 const WelcomeSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const duration = 5000;
-  const currentImages =
-  categoryImages[contentData[currentIndex].title] || [];
+  
+  // पूरे सेक्शन को बदलने का समय (6 सेकंड)
+  const duration = 6000; 
+  const currentImages = categoryImages[contentData[currentIndex].title] || [];
 
   useEffect(() => {
     let interval;
@@ -121,13 +112,18 @@ const WelcomeSlider = () => {
       clearInterval(interval);
       clearInterval(progressInterval);
     };
-  }, [currentIndex, isPaused]);
+  }, [currentIndex, isPaused, progress]);
 
-  const sliderSettings = (delay) => ({
+  // यहाँ हमने डिले को बढ़ाकर 4500ms और फ़ेड स्पीड को 1200ms किया है ताकि आराम से चेंज हो
+  const sliderSettings = (baseDelay) => ({
     modules: [Autoplay, EffectFade],
     effect: "fade",
-    speed: 800,
-    autoplay: { delay: delay, disableOnInteraction: false, pauseOnMouseEnter: true },
+    speed: 1200, // फ़ेड होने की रफ़्तार को स्मूथ किया
+    autoplay: { 
+      delay: baseDelay, // अब यह 4000ms से 4600ms के बीच रहेगा
+      disableOnInteraction: false, 
+      pauseOnMouseEnter: true 
+    },
     loop: true,
     allowTouchMove: false,
     className: "h-full w-full"
@@ -139,14 +135,11 @@ const WelcomeSlider = () => {
         
         {/* LEFT CONTENT: 40% */}
         <div className="w-full md:w-[40%] p-10 md:p-20 flex flex-col justify-center relative shrink-0 bg-white overflow-hidden">
-
           {/* Background watermark */}
           <div className="relative">
-            {/* Desktop view */}
             <span className="hidden md:block absolute top-35 -right-45 -translate-y-1/2 opacity-[0.07] rotate-90 font-black blur-[0.7px] text-left text-4xl tracking-[0.2em]">
               ITCLUB <br /> FOUNDATION
             </span>
-            {/* Mobile view */}
             <span className="block md:hidden absolute top-22 -right-35 opacity-[0.07] rotate-90 font-black blur-[0.7px] text-left text-4xl tracking-[0.2em]">
               ITCLUB <br /> FOUNDATION
             </span>
@@ -160,10 +153,7 @@ const WelcomeSlider = () => {
             {/* Focus Area Section */}
             <div className="space-y-1">
               <div className="flex items-center gap-3">
-                {/* <span className="w-6 h-0.5 bg-it-green rounded-full"></span> */}
-                <span className="text-it-green font-extrabold tracking-[0.4em] text-[10px] uppercase">
-                    {/* {currentIndex + 1}  Focus Area */}
-                </span>
+                <span className="text-it-green font-extrabold tracking-[0.4em] text-[10px] uppercase"></span>
               </div>
               <p className="text-gray-400 font-bold text-[10px] uppercase tracking-widest pl-9">
                 {contentData[currentIndex].slogan}
@@ -194,10 +184,8 @@ const WelcomeSlider = () => {
                 {contentData[currentIndex].desc}
               </p>
 
-              {/* BOTTOM SECTION: MISSION + DONATE BUTTON */}
+              {/* BOTTOM SECTION */}
               <div className="mt-10 flex items-center justify-between w-full">
-
-                {/* LEFT: MISSION INFO */}
                 <div className="flex flex-col">
                   <span className="text-[9px] font-black uppercase text-it-blue opacity-50 tracking-widest leading-none mb-1">
                     Our Global Mission
@@ -207,7 +195,6 @@ const WelcomeSlider = () => {
                   </span>
                 </div>
 
-                {/* RIGHT: ANIMATED DONATE BUTTON */}
                 <div className="flex items-center">
                   <style>
                     {`
@@ -229,35 +216,35 @@ const WelcomeSlider = () => {
                     DONATE
                   </a>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
 
-
         {/* RIGHT PHOTO GRID: 60% */}
         <div className="w-full md:w-[60%] bg-[#f8fafc] p-2 grid grid-cols-2 grid-rows-2 gap-2 h-96 md:h-full overflow-hidden">          
+          
           <div className="relative overflow-hidden rounded-2xl bg-gray-200 h-full shadow-sm">
-            <Swiper {...sliderSettings(1500)}>
+            {/* Delay बढ़ाकर 4200ms किया */}
+            <Swiper {...sliderSettings(4200)}>
               {currentImages.map((img, i) => (
                 <SwiperSlide key={i}><img src={img} className="h-full w-full object-cover" alt="" /></SwiperSlide>
               ))}
             </Swiper>
           </div>
-
+{/* #019b07 */}
           <div className="bg-it-green flex flex-col items-center justify-center text-white text-center p-6 h-full rounded-2xl shadow-inner relative overflow-hidden group">
             <p className="text-xl lg:text-3xl font-black uppercase tracking-widest leading-none z-10">
               Connecting <br /> 
               <span className="text-it-blue">Communities!</span>
-              <span className="block text-xs mt-2">People Empowerement</span>
+              <span className="block text-xs mt-2">People Empowerment</span>
             </p>
             <div className="w-12 h-1 bg-white mt-4 z-10 rounded-full"></div>
           </div>
 
-
           <div className="relative overflow-hidden rounded-2xl bg-gray-200 h-full shadow-sm">
-            <Swiper {...sliderSettings(2000)}>
+            {/* Delay बढ़ाकर 4500ms किया */}
+            <Swiper {...sliderSettings(4500)}>
               {[...currentImages].reverse().map((img, i) => (
                 <SwiperSlide key={i}><img src={img} className="h-full w-full object-cover" alt="" /></SwiperSlide>
               ))}
@@ -265,9 +252,9 @@ const WelcomeSlider = () => {
           </div>
 
           <div className="grid grid-cols-2 gap-2 h-full">
-            {/* smallest card */}
             <div className="overflow-hidden rounded-2xl bg-gray-200 h-full shadow-sm">
-              <Swiper {...sliderSettings(1200)}>
+              {/* Delay बढ़ाकर 4000ms किया */}
+              <Swiper {...sliderSettings(4000)}>
                   {currentImages.map((img, i) => (
                   <SwiperSlide key={i}><img src={img} className="h-full w-full object-cover" alt="" /></SwiperSlide>
                 ))}
@@ -275,7 +262,8 @@ const WelcomeSlider = () => {
             </div>
 
             <div className="overflow-hidden rounded-2xl bg-gray-200 h-full shadow-sm">
-              <Swiper {...sliderSettings(1800)}>
+              {/* Delay बढ़ाकर 4600ms किया */}
+              <Swiper {...sliderSettings(4600)}>
                 {[...currentImages].reverse().map((img, i) => (
                   <SwiperSlide key={i}><img src={img} className="h-full w-full object-cover" alt="" /></SwiperSlide>
                 ))}
@@ -286,11 +274,7 @@ const WelcomeSlider = () => {
         </div>
 
       </div>
-
     </section>
-
-
-
   );
 };
 

@@ -118,21 +118,7 @@ const Navbar = () => {
                 alt="IT CLUB FOUNDATION Logo"
                 className="h-15 md:h-25 w-auto"
               />
-
-
             </div>
-
-            {/* <div className="flex flex-col justify-center transition-opacity duration-200 group-hover:opacity-90">
-              <p className="text-it-red font-black uppercase tracking-tight text-[11px] md:text-[12px] leading-[1.2]">
-                Registered Under the Companies Act 2013, <br /> 
-                <span className="text-[10px] md:text-[11px]">Ministry of Corporate Affairs</span>
-              </p>
-              <p className="text-it-green font-bold italic underline decoration-it-blue text-[10px] md:text-[11px] mt-0.5">
-                An ISO 9001:2015 Certified Company
-              </p>
-            </div> */}
-
-
           </Link>
 
           {/* Desktop Menu */}

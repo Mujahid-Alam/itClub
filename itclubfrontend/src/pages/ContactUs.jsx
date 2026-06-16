@@ -26,10 +26,13 @@ const ContactUs = () => {
             
             {/* 1. Contact Info Cards */}
             <div className="lg:col-span-1 space-y-4">
+
+              
+
               {[
-                { label: "Head Office", val: "123 Foundation Hub, Tech Park, New Delhi", icon: "📍" },
-                { label: "Email Us", val: "info@foundation.org", icon: "✉️" },
-                { label: "Call Us", val: "+91 98765 43210", icon: "📞" }
+                { label: "Head Office", val: "ITCLUB House, Madhopara Khazanchi Hat, Bhatta Bazar, Purnea-854301 Bihar, India  ", icon: "📍" },
+                { label: "Email Us", val: "info@itclubfoundation.org", icon: "✉️" },
+                { label: "Call Us", val: "+91 84097 44414", icon: "📞" }
               ].map((item, i) => (
                 <div key={i} className="bg-white p-6 rounded-[1.5rem] border border-it-blue/5 shadow-sm hover:shadow-md transition-all group">
                   <div className="flex items-center gap-4">
@@ -44,12 +47,12 @@ const ContactUs = () => {
               
               {/* Map Placeholder */}
               <div className="h-48 bg-gray-100 rounded-[1.5rem] overflow-hidden border border-it-blue/5 mt-6 grayscale hover:grayscale-0 transition-all">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.83923192776!2d77.0688975472!3d28.52728030605361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b71dbff41d5!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1700000000000" 
-                  className="w-full h-full border-0" 
-                  allowFullScreen="" 
-                  loading="lazy"
-                ></iframe>
+              <iframe
+                src="https://www.google.com/maps?q=ITCLUB%20House%2C%20Madhopara%20Khazanchi%20Hat%2C%20Bhatta%20Bazar%2C%20Purnea%2C%20Bihar%20854301&output=embed"
+                className="w-full h-full border-0"
+                allowFullScreen=""
+                loading="lazy"
+              ></iframe>
               </div>
             </div>
 
