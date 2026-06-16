@@ -28,10 +28,11 @@ const Donate = () => {
           highlight="DONATION"
           footerText="Secure • Transparent • Tax Exempted"
         />
+        
 
         {/* MAIN DONATION SECTION */}
-        <section className="max-w-7xl mx-auto px-4 md:px-6 -mt-12 mb-28 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <section className="max-w-7xl mx-auto px-4 md:px-6 -mt-8 mb-28 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr_1.5fr] gap-1 items-start">
             
             {/* LEFT COLUMN: SELECT AMOUNT */}
             <div className="space-y-5 order-2 lg:order-1 bg-white backdrop-blur-md p-8 rounded-3xl shadow-xl border border-white">
@@ -57,12 +58,16 @@ const Donate = () => {
             </div>
 
             {/* CENTER COLUMN: QR CARD (lg:translate-y-6 से इसे नीचे किया गया है) */}
-            <div className="order-1 lg:order-2 lg:translate-y-10">
-              <div className="bg-white rounded-[3rem] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-100 text-center transform lg:scale-110 relative overflow-hidden">
+            <div className="order-1 lg:order-2 flex justify-center">
+              <div className="bg-white rounded-[3rem] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-100 text-center relative overflow-hidden w-full max-w-[300px]">
                 {/* <div className="absolute top-0 left-0 w-full h-0.5 bg-it-green"></div> */}
                 
                 <div className="relative inline-block p-3 bg-white rounded-3xl shadow-inner border border-gray-100 mt-2">
-                  <img src="qr.jpeg" alt="QR problem" className="w-full h-full object-cover"/>
+                  <img
+                    src="qr.jpg"
+                    alt="QR Code"
+                    className="w-[220px] h-[220px] object-contain mx-auto"
+                  />
                   <div className="absolute top-0 left-0 w-10 h-10 border-t-4 border-l-4 border-it-green rounded-tl-3xl"></div>
                   <div className="absolute bottom-0 right-0 w-10 h-10 border-b-4 border-r-4 border-it-green rounded-br-3xl"></div>
                 </div>
@@ -80,46 +85,73 @@ const Donate = () => {
                 </div>
               </div>
             </div>
+              {/* RIGHT COLUMN: BANK DETAILS */}
+              <div className="bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-100 order-3 relative">
+                
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-10">
+                  <p className="text-white text-xs font-semibold px-4 py-2 rounded-xl shadow-lg animated-tax-box whitespace-nowrap">
+                    All donations are eligible for 50% Tax Exemption
+                    <br />
+                    <span className="block text-center">
+                      (u/s 80G of Income Tax Act.)
+                    </span>
+                  </p>
+                </div>
 
-            {/* RIGHT COLUMN: FORM */}
-            <div className="bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-100 order-3 lg:order-3 relative">
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-it-blue text-white text-[8px] font-black px-4 py-1.5 rounded-full uppercase tracking-[0.2em]">
-                Secure Payment
+<div className="text-center mt-3">
+  <h3 className="text-xl lg:text-2xl font-black text-it-blue leading-tight">
+    Your <span className="text-orange-500">Donation</span> Can Change Lives
+  </h3>
+</div>
+
+<div className="mt-4 bg-gray-50 border border-gray-100 rounded-2xl p-4">
+  
+  <h4 className="text-sm font-bold text-it-blue uppercase tracking-wide mb-3">
+    Bank Details
+  </h4>
+
+  <div className="grid grid-cols-2 gap-y-2 text-sm">
+
+    <span className="text-gray-500">Bank Name</span>
+    <span className="font-semibold text-right">State Bank of India</span>
+
+    <span className="text-gray-500">Account Name</span>
+    <span className="font-semibold text-right">ITCLUB FOUNDATION</span>
+
+    <span className="text-gray-500">Account Number</span>
+    <span className="font-bold text-it-green text-right">42482743614</span>
+
+    <span className="text-gray-500">IFSC Code</span>
+    <span className="font-bold text-it-green text-right">SBIN0016622</span>
+
+    <span className="text-gray-500">MICR Code</span>
+    <span className="font-semibold text-right">854002108</span>
+
+    <span className="text-gray-500">Account Type</span>
+    <span className="font-semibold text-right">Current Account</span>
+
+  </div>
+
+</div>
+
+
+                <div className="mt-6 bg-orange-50 border border-orange-100 rounded-2xl p-4 text-center">
+                  <p className="text-xs font-semibold text-orange-600 uppercase tracking-wider">
+                    80G Certified NGO
+                  </p>
+                  <p className="text-sm text-gray-600 mt-1">
+                    Donations are eligible for tax benefits under Section 80G.
+                  </p>
+                </div>
+
               </div>
-              
-              <p className="text-center text-[10px] font-medium leading-relaxed text-gray-500 italic mb-8 px-2">
-                "Thank you for your generous contribution! Your support helps us make a real difference."
-              </p>
-
-              <form className="space-y-5">
-                <div className="relative">
-                  <label className="text-[9px] uppercase font-bold text-it-blue/40 ml-1 absolute -top-2 left-3 bg-white px-1">Amount (INR)</label>
-                  <input 
-                    type="number" 
-                    value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
-                    className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-4 text-sm font-bold focus:ring-2 focus:ring-it-green/20 outline-none transition-all"
-                    placeholder="0.00"
-                  />
-                </div>
-
-                <div className="relative">
-                  <label className="text-[9px] uppercase font-bold text-it-blue/40 ml-1 absolute -top-2 left-3 bg-white px-1">Full Name</label>
-                  <input 
-                    type="text" 
-                    className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-4 text-sm focus:ring-2 focus:ring-it-green/20 outline-none transition-all"
-                    placeholder="Enter your name"
-                  />
-                </div>
-
-                <button type="button" className="w-full bg-it-green hover:bg-it-blue text-white font-black uppercase text-[11px] tracking-[0.3em] py-4 rounded-2xl transition-all duration-500 shadow-lg shadow-it-green/20 active:scale-95">
-                  Proceed to Donate
-                </button>
-              </form>
-            </div>
 
           </div>
         </section>
+
+
+
+        
       </main>
 
       <Footer />

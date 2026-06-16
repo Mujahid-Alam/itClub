@@ -30,3 +30,29 @@
     }
   }
 }
+
+.animated-tax-box {
+  background: linear-gradient(
+    270deg,
+    #fd8d02,
+    #0229ab,
+    #019b06,
+    #fd8d02
+  );
+  background-size: 600% 600%;
+  animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
