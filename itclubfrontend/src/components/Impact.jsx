@@ -37,6 +37,8 @@ export default function ImpactSection() {
           <p className="text-gray-500 mt-2 text-sm sm:text-base max-w-xl mx-auto">
             Creating real change through education, skill development, and community outreach.
           </p>
+                    {/* Decorative Line (kept green for original brand aesthetic, change if needed) */}
+          <div className="w-12 h-1 bg-[#0233c3] mx-auto rounded-full mt-4" />
         </div>
 
         {/* GRID */}

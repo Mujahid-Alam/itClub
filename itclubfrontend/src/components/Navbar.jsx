@@ -41,43 +41,43 @@ const Navbar = () => {
       submenu: [
         {
           name: 'Skill Development',
-          path: '/our-work/skill-development',
+          path: '/our-program/skill-development',
         },
         {
           name: 'Women Empowerment',
-          path: '/our-work/women-empowerment',
+          path: '/our-program/women-empowerment',
         },
         {
           name: 'Youth Development',
-          path: '/our-work/youth-development',
+          path: '/our-program/youth-development',
         },
         {
           name: 'Livelihood Promotion',
-          path: '/our-work/livelihood-promotion',
+          path: '/our-program/livelihood-promotion',
         },
         {
           name: 'Education & Digital Literacy',
-          path: '/our-work/education-digital-literacy',
+          path: '/our-program/education-digital-literacy',
         },
         {
           name: 'Healthcare & Nutrition',
-          path: '/our-work/healthcare-nutrition',
+          path: '/our-program/healthcare-nutrition',
         },
         {
           name: 'Relief & Humanitarian',
-          path: '/our-work/relief-humanitarian',
+          path: '/our-program/relief-humanitarian',
         },
         {
           name: 'Govt. Schemes',
-          path: '/our-work/govt-schemes',
+          path: '/our-program/govt-schemes',
         },
         {
           name: 'Environmental Sustainability',
-          path: '/our-work/environmental-sustainability',
+          path: '/our-program/environmental-sustainability',
         },
         {
           name: 'Arts, Culture & Heritage',
-          path: '/our-work/arts-culture-heritage',
+          path: '/our-program/arts-culture-heritage',
         },
       ],
     },
