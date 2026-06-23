@@ -1,93 +1,153 @@
-import React from 'react';
+import {
+  ArrowRight,
+  BadgeCheck,
+  Building2,
+  HandHeart,
+  Landmark,
+  ShieldCheck,
+  UsersRound,
+} from "lucide-react";
+
+const profileImages = [
+  {
+    src: "/NgoProfile/ngoprofile1.png",
+    alt: "Students participating in an ITCLUB Foundation activity",
+    className: "h-56 sm:h-64 lg:h-72",
+  },
+  {
+    src: "/NgoProfile/ngoprofile2.png",
+    alt: "Youth group at an ITCLUB Foundation program",
+    className: "h-44 sm:h-52 lg:h-56 lg:mt-8",
+  },
+  {
+    src: "/NgoProfile/ngoprofile3.png",
+    alt: "Computer training lab",
+    className: "h-44 sm:h-52 lg:h-56 lg:-mt-8",
+  },
+  {
+    src: "/NgoProfile/ngoprofile4.png",
+    alt: "Community training program",
+    className: "h-56 sm:h-64 lg:h-72",
+  },
+];
+
+const trustBadges = [
+  { icon: Building2, label: "Section 8", text: "Non-profit organization" },
+  { icon: Landmark, label: "MCA", text: "Government registered" },
+  { icon: ShieldCheck, label: "80G & CSR-1", text: "Verified foundation" },
+];
+
+const focusAreas = [
+  "Education",
+  "Digital Literacy",
+  "Skill Development",
+  "Women Empowerment",
+];
 
 export default function NgoProfile() {
   return (
-    <div className="bg-gray-50 relative min-h-screen flex items-center justify-center p-4 md:p-12 font-sans overflow-x-hidden">
-      
-      {/* Main Container */}
-      <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-        
-        {/* Right Side: Content (अब यह मोबाइल पर order-1 यानी पहले दिखेगा और बड़ी स्क्रीन पर order-2 हो जाएगा) */}
-        <div className="lg:col-span-6 space-y-6 px-4 md:px-0 order-1 lg:order-2">
-            {/* Top Small Tagline */}
-            <div className="flex items-center gap-2">
-                <span className="w-8 h-[2px] bg-green-600"></span>
-                <span className="text-green-600 uppercase tracking-widest text-xs font-semibold">NGO Profile</span>
-            </div>
+    <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50 py-16 sm:py-20">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:items-center lg:px-8">
+        <div className="order-2 lg:order-1 lg:col-span-6">
+          <div className="relative grid grid-cols-2 gap-3 sm:gap-4">
+            {profileImages.map((image) => (
+              <div
+                key={image.src}
+                className={`overflow-hidden rounded-xl border border-white bg-gray-100 shadow-sm ${image.className}`}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            ))}
 
-            {/* Main Heading */}
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-                <span className="text-[#0327a7]">WHO WE</span>{' '}
-                <span className="text-orange-400">ARE</span>
+            <div className="absolute left-1/2 top-1/2 z-10 w-[180px] -translate-x-1/2 -translate-y-1/2 rounded-xl border-4 border-white bg-[#003366] p-4 text-center text-white shadow-xl sm:w-[210px] sm:p-5">
+              <BadgeCheck className="mx-auto h-8 w-8 text-[#fe9402]" />
+              <p className="mt-3 text-lg font-extrabold leading-tight sm:text-xl">80G & CSR-1</p>
+              <p className="mt-1 text-[10px] font-bold uppercase tracking-wide text-blue-100">
+                Verified Foundation
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="order-1 lg:order-2 lg:col-span-6">
+          <div className="flex flex-col items-start">
+            <span className="inline-flex items-center gap-2 rounded-md border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#003366]">
+              <HandHeart className="h-3.5 w-3.5 text-[#fe9402]" />
+              NGO Profile
+            </span>
+
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
+              <span className="bg-gradient-to-r from-[#003366] to-blue-700 bg-clip-text text-transparent">
+                Who We
+              </span>{" "}
+              <span className="bg-gradient-to-r from-blue-700 to-[#fe9402] bg-clip-text text-transparent">
+                Are
+              </span>
             </h2>
+          </div>
 
-            {/* Paragraphs */}
-            <p className="text-gray-800 font-bold text-sm md:text-base leading-relaxed">
-                ITCLUB Foundation is a Section 8 non-profit organization established in 2023 and registered with the Ministry of Corporate Affairs, Government of India. We are dedicated to empowering youth, women, and underserved communities through education, technology, skill development, and sustainable development initiatives.
-            </p>
+          <p className="mt-5 text-sm font-semibold leading-7 text-gray-800 sm:text-base">
+            ITCLUB Foundation is a Section 8 non-profit organization established in 2023 and
+            registered with the Ministry of Corporate Affairs, Government of India.
+          </p>
 
-            <p className="text-gray-600 text-xs md:text-sm leading-relaxed">
-                Driven by innovation and community participation, we create opportunities that enhance livelihoods, promote social inclusion, and equip individuals with the knowledge and skills needed to thrive in a rapidly evolving world.
-            </p>
+          <p className="mt-4 text-sm leading-7 text-gray-600">
+            We empower youth, women, and underserved communities through education, technology,
+            skill development, and sustainable development initiatives. Our work is driven by
+            innovation, community participation, and practical opportunities that improve lives.
+          </p>
 
-            <p className="text-gray-600 text-xs md:text-sm leading-relaxed">
-                Through partnerships with government agencies, CSR organizations, academic institutions, and community stakeholders, we implement impactful programs that foster inclusive growth, strengthen communities, and contribute to building a more empowered and future-ready society.
-            </p>
-        </div>
+          <p className="mt-4 text-sm leading-7 text-gray-600">
+            Through partnerships with government agencies, CSR organizations, academic
+            institutions, and local stakeholders, we implement programs that support inclusive
+            growth and build future-ready communities.
+          </p>
 
-        {/* Left Side: Image Collage with Badges (अब यह मोबाइल पर order-2 यानी नीचे दिखेगा और बड़ी स्क्रीन पर order-1 हो जाएगा) */}
-        <div className="lg:col-span-6 grid grid-cols-2 gap-4 relative px-4 md:px-0 order-2 lg:order-1 mt-6 lg:mt-0">
-            
-            {/* Top Left Image */}
-            <div className="rounded-[2.5rem] overflow-hidden shadow-md h-64 md:h-72">
-                <img 
-                  src="/NgoProfile/ngoprofile1.png" 
-                  alt="Students" 
-                  className="w-full h-full object-cover" 
-                />
-            </div>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {focusAreas.map((area) => (
+              <span
+                key={area}
+                className="rounded-md border border-gray-200 bg-white px-3 py-1.5 text-xs font-bold text-gray-600 shadow-sm"
+              >
+                {area}
+              </span>
+            ))}
+          </div>
 
-            {/* Top Right Image */}
-            <div className="rounded-[2.5rem] overflow-hidden shadow-md h-44 md:h-48 mt-8">
-                <img 
-                  src="/NgoProfile/ngoprofile2.png" 
-                  alt="Youth Group" 
-                  className="w-full h-full object-cover" 
-                />
-            </div>
+          <div className="mt-8 grid gap-3 sm:grid-cols-3">
+            {trustBadges.map((badge) => {
+              const Icon = badge.icon;
 
-            {/* Bottom Left Image */}
-            <div className="rounded-[2.5rem] overflow-hidden shadow-md h-44 md:h-48 -mt-12 md:-mt-16">
-                <img 
-                  src="/NgoProfile/ngoprofile3.png" 
-                  alt="Computer Lab" 
-                  className="w-full h-full object-cover" 
-                />
-            </div>
-
-            {/* Bottom Right Image */}
-            <div className="rounded-[2.5rem] overflow-hidden shadow-md h-64 md:h-72 -mt-6 md:-mt-8">
-                <img 
-                  src="/NgoProfile/ngoprofile4.png" 
-                  alt="Training" 
-                  className="w-full h-full object-cover" 
-                />
-            </div>
-
-            {/* Overlapping Verified Badge */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#0327a7] text-white p-5 md:p-6 rounded-[1.8rem] shadow-xl text-center flex flex-col items-center justify-center border-4 border-white w-40 md:w-48 z-20">
-                <div className="relative mb-2">
-                  {/* Outer Badge Star */}
-                  <svg className="w-8 h-8 md:w-10 md:h-10 text-blue-200 animate-[spin_20s_linear_infinite]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z"/>
-                  </svg>
+              return (
+                <div
+                  key={badge.label}
+                  className="rounded-xl border border-gray-200 bg-white/80 p-4 shadow-sm backdrop-blur"
+                >
+                  <Icon className="h-5 w-5 text-[#003366]" />
+                  <p className="mt-3 text-sm font-extrabold text-gray-950">{badge.label}</p>
+                  <p className="mt-1 text-[11px] leading-5 text-gray-500">{badge.text}</p>
                 </div>
-                <h4 className="font-bold text-base md:text-lg leading-tight tracking-wide">80G & CSR-1</h4>
-                <p className="text-[9px] md:text-[10px] uppercase tracking-widest text-blue-200 mt-1">Verified Foundation</p>
-            </div>
-        </div>
+              );
+            })}
+          </div>
 
+          <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-gray-200 pt-5">
+            <div className="inline-flex items-center gap-3 text-sm font-bold text-gray-800">
+              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-orange-50 text-[#fe9402]">
+                <UsersRound className="h-5 w-5" />
+              </span>
+              Community-first development since 2023
+            </div>
+
+            <ArrowRight className="h-4 w-4 text-[#fe9402]" />
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

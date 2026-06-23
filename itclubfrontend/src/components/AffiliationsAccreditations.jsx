@@ -1,4 +1,12 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import {
+  ArrowRight,
+  BadgeCheck,
+  Building2,
+  ChevronLeft,
+  ChevronRight,
+  ShieldCheck,
+} from "lucide-react";
 
 const affiliations = [
   { name: "NITI Aayog", logo: "/AffiliationsAccreditations/niti.png", tag: "Govt. of India" },
@@ -18,117 +26,167 @@ const affiliations = [
   { name: "Anudhan", logo: "/AffiliationsAccreditations/anudhan.png", tag: "Portal" },
 ];
 
-export default function Affiliations() {
-  const [showAll, setShowAll] = useState(false);
+const highlights = [
+  { icon: ShieldCheck, value: "15+", label: "Affiliations" },
+  { icon: Building2, value: "Govt.", label: "Registrations" },
+  { icon: BadgeCheck, value: "ISO", label: "Certified" },
+];
 
+function AffiliationCard({ item, className = "w-full max-w-[220px]" }) {
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 via-white to-gray-50 overflow-hidden relative">
-
-      {/* Background blur blobs */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-30"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-100 rounded-full blur-3xl opacity-30"></div>
-
-      {/* Heading */}
-      <div className="max-w-7xl mx-auto px-4 text-center mb-10 relative z-10">
-
-        <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-          Recognition & Trust
+    <article
+      className={`group relative flex h-[150px] flex-col justify-between rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg ${className}`}
+    >
+      <div className="flex items-start justify-between gap-3">
+        <span className="rounded-md bg-gray-50 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-gray-500">
+          {item.tag}
         </span>
-
-        <h2 className="text-4xl font-extrabold text-gray-900 mt-3 sm:text-5xl">
-          Affiliations &{" "}
-          <span className="text-transparent bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text">
-            Accreditations
-          </span>
-        </h2>
-
-        <p className="text-lg text-gray-500 mt-4 max-w-2xl mx-auto">
-          Proudly associated with India's leading institutions and initiatives.
-        </p>
-
-        {/* Toggle Button */}
-        <button
-          onClick={() => setShowAll(!showAll)}
-          className="mt-3 bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded-md font-semibold hover:opacity-90 transition"
-        >
-          {showAll ? "Show Slider View" : "Show All Affiliations"}
-        </button>
-
+        <BadgeCheck className="h-4 w-4 text-blue-600 opacity-70 transition-opacity group-hover:opacity-100" />
       </div>
 
-      {/* CONDITIONAL VIEW */}
-      {!showAll ? (
+      <div className="flex h-16 items-center justify-center px-2">
+        <img
+          src={item.logo}
+          alt={item.name}
+          loading="lazy"
+          className="max-h-14 w-full object-contain"
+        />
+      </div>
 
-        /* 🔥 YOUR ORIGINAL SLIDER (UNCHANGED) */
-        <div className="relative w-full overflow-hidden before:absolute before:left-0 before:top-0 before:z-20 before:h-full before:w-24 before:bg-gradient-to-r before:from-gray-50 before:to-transparent after:absolute after:right-0 after:top-0 after:z-20 after:h-full after:w-24 after:bg-gradient-to-l after:from-gray-50 after:to-transparent">
+      <p className="text-center text-sm font-bold text-gray-800">{item.name}</p>
+    </article>
+  );
+}
 
-          <div className="flex w-max animate-scroll hover:[animation-play-state:paused] py-4">
+export default function Affiliations() {
+  const [showAll, setShowAll] = useState(false);
+  const sliderRef = useRef(null);
 
-            {[...affiliations, ...affiliations].map((item, index) => (
-              <div
-                key={`${item.name}-${index}`}
-                className="group flex-shrink-0 bg-white rounded-2xl border border-gray-100 mx-4 w-[240px] h-40 flex flex-col items-center justify-center p-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg relative"
-              >
+  const scrollSlider = (direction) => {
+    sliderRef.current?.scrollBy({
+      left: direction === "left" ? -320 : 320,
+      behavior: "smooth",
+    });
+  };
 
-                {/* top glow */}
-                <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-blue-500 to-indigo-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+  return (
+    <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50 py-16 sm:py-20">
+      <style>{`
+        @keyframes affiliationRail {
+          from { transform: translateX(0); }
+          to { transform: translateX(calc(-50% - 12px)); }
+        }
 
-                {/* tag */}
-                <span className="absolute top-2 right-3 text-[9px] font-semibold text-gray-400 uppercase bg-gray-50 px-1.5 py-0.5 rounded">
-                  {item.tag}
-                </span>
+        .affiliation-rail {
+          animation: affiliationRail 40s linear infinite;
+        }
 
-                {/* logo */}
-                <div className="h-16 w-full flex items-center justify-center mb-3">
-                  <img
-                    src={item.logo}
-                    alt={item.name}
-                    loading="lazy"
-                    className="h-full w-full object-contain"
-                  />
+        .affiliation-rail:hover {
+          animation-play-state: paused;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .affiliation-rail {
+            animation: none;
+          }
+        }
+      `}</style>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid items-end gap-8 lg:grid-cols-[1fr_auto]">
+          <div className="max-w-3xl">
+            <span className="inline-flex items-center gap-2 rounded-md border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-blue-700">
+              <ShieldCheck className="h-3.5 w-3.5" />
+              Recognition & Trust
+            </span>
+
+            <h2 className="mt-4 bg-gradient-to-r from-[#003366] via-blue-700 to-[#fe9402] bg-clip-text text-3xl font-extrabold tracking-tight text-transparent sm:text-4xl lg:text-5xl">
+              Affiliations & Accreditations
+            </h2>
+
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-gray-600 sm:text-base">
+              Our work is backed by registrations, certifications, and recognized institutional
+              associations that strengthen transparency, credibility, and service delivery.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-3 gap-3 rounded-xl border border-gray-200 bg-white/75 p-3 shadow-sm backdrop-blur">
+            {highlights.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <div
+                  key={item.label}
+                  className="min-w-[92px] rounded-lg border border-gray-100 bg-white p-3 text-center"
+                >
+                  <Icon className="mx-auto h-5 w-5 text-[#003366]" />
+                  <div className="mt-2 text-lg font-extrabold text-gray-950">{item.value}</div>
+                  <div className="mt-1 text-[10px] font-bold uppercase tracking-wide text-gray-500">
+                    {item.label}
+                  </div>
                 </div>
-
-                {/* name */}
-                <p className="text-sm font-semibold text-gray-700 text-center">
-                  {item.name}
-                </p>
-
-              </div>
-            ))}
-
+              );
+            })}
           </div>
         </div>
 
-      ) : (
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-y border-gray-200 py-4">
+          <p className="text-sm font-medium text-gray-600">
+            Recognized across government, compliance, skilling, and institutional platforms.
+          </p>
 
-        /* 🔥 GRID VIEW (ALL CARDS) */
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+          <button
+            type="button"
+            onClick={() => setShowAll((current) => !current)}
+            className="inline-flex items-center gap-2 rounded-lg bg-[#fe9402] px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-white shadow-sm transition hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-[#fe9402]/30"
+          >
+            {showAll ? "Show Slider" : "View All"}
+            <ArrowRight className="h-4 w-4" />
+          </button>
+        </div>
+      </div>
 
-          {affiliations.map((item, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl p-4 flex flex-col items-center justify-center shadow-sm hover:shadow-md transition"
-            >
-
-              <div className="h-16 w-full flex items-center justify-center">
-                <img
-                  src={item.logo}
-                  alt={item.name}
-                  className="h-full w-full object-contain"
-                />
-              </div>
-
-              <p className="text-sm font-semibold mt-2 text-center text-gray-700">
-                {item.name}
-              </p>
-
+      {showAll ? (
+        <div className="mx-auto mt-10 grid max-w-7xl grid-cols-2 gap-4 px-4 sm:grid-cols-3 sm:px-6 lg:grid-cols-5 lg:px-8">
+          {affiliations.map((item) => (
+            <div key={item.name} className="flex justify-center">
+              <AffiliationCard item={item} />
             </div>
           ))}
-
         </div>
+      ) : (
+        <div className="relative mt-10 overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-14 before:bg-gradient-to-r before:from-gray-50 before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-14 after:bg-gradient-to-l after:from-gray-50 after:to-transparent sm:before:w-28 sm:after:w-28">
+          <button
+            type="button"
+            aria-label="Scroll affiliations left"
+            onClick={() => scrollSlider("left")}
+            className="absolute left-3 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-md transition hover:border-blue-200 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-100"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
 
+          <button
+            type="button"
+            aria-label="Scroll affiliations right"
+            onClick={() => scrollSlider("right")}
+            className="absolute right-3 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-md transition hover:border-blue-200 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-100"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+
+          <div ref={sliderRef} className="no-scrollbar overflow-x-auto py-2">
+            <div className="affiliation-rail flex w-max gap-6 px-16 sm:px-24">
+              {[...affiliations, ...affiliations].map((item, index) => (
+                <AffiliationCard
+                  key={`${item.name}-${index}`}
+                  item={item}
+                  className="w-[220px] shrink-0"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       )}
-
     </section>
   );
 }

@@ -1,75 +1,134 @@
-import React from "react";
+import {
+  Activity,
+  ArrowUpRight,
+  BriefcaseBusiness,
+  GraduationCap,
+  HeartHandshake,
+  MapPinned,
+} from "lucide-react";
 
 const impactStats = [
-  { number: "1+ Lakh", label: "Lives Touched", color: "blue" },
-  { number: "100+", label: "Villages Reached", color: "emerald" },
-  { number: "8+", label: "Active Projects", color: "indigo" },
-  { number: "10+", label: "Indian States", color: "sky" },
+  {
+    number: "1+ Lakh",
+    label: "Lives Touched",
+    detail: "Families, youth, women, and children supported through outreach programs.",
+    icon: HeartHandshake,
+    tone: "blue",
+  },
+  {
+    number: "100+",
+    label: "Villages Reached",
+    detail: "Community-level programs delivered across rural and semi-urban areas.",
+    icon: MapPinned,
+    tone: "emerald",
+  },
+  {
+    number: "8+",
+    label: "Active Projects",
+    detail: "Ongoing work across education, healthcare, skilling, and social welfare.",
+    icon: BriefcaseBusiness,
+    tone: "orange",
+  },
+  {
+    number: "10+",
+    label: "Indian States",
+    detail: "Expanding collaborations and programs across multiple regions.",
+    icon: GraduationCap,
+    tone: "indigo",
+  },
 ];
 
-// safe color mapping (IMPORTANT for Tailwind)
-const colorMap = {
-  blue: "bg-blue-50 text-blue-600",
-  emerald: "bg-emerald-50 text-emerald-600",
-  indigo: "bg-indigo-50 text-indigo-600",
-  sky: "bg-sky-50 text-sky-600",
+const toneMap = {
+  blue: {
+    icon: "bg-blue-50 text-[#003366]",
+    accent: "bg-[#003366]",
+  },
+  emerald: {
+    icon: "bg-emerald-50 text-emerald-700",
+    accent: "bg-emerald-600",
+  },
+  orange: {
+    icon: "bg-orange-50 text-[#fe9402]",
+    accent: "bg-[#fe9402]",
+  },
+  indigo: {
+    icon: "bg-indigo-50 text-indigo-700",
+    accent: "bg-indigo-600",
+  },
 };
 
 export default function ImpactSection() {
   return (
-    <section className="relative bg-gradient-to-b from-gray-50 via-white to-gray-50 py-16 px-4 overflow-hidden">
-
-      {/* Background blobs */}
-      <div className="absolute top-0 left-1/4 w-72 h-72 bg-blue-100/40 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-indigo-100/40 rounded-full blur-3xl"></div>
-
-      <div className="max-w-6xl mx-auto relative z-10">
-
-        {/* HEADER */}
-        <div className="text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900">
-            Our Growing{" "}
-            <span className="text-transparent bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text">
-              Impact
+    <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50 py-16 sm:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.4fr] lg:items-end">
+          <div>
+            <span className="inline-flex items-center gap-2 rounded-md border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-blue-700">
+              <Activity className="h-3.5 w-3.5" />
+              Measurable Impact
             </span>
-          </h2>
 
-          <p className="text-gray-500 mt-2 text-sm sm:text-base max-w-xl mx-auto">
-            Creating real change through education, skill development, and community outreach.
-          </p>
-                    {/* Decorative Line (kept green for original brand aesthetic, change if needed) */}
-          <div className="w-12 h-1 bg-[#0233c3] mx-auto rounded-full mt-4" />
+            <h2 className="mt-4 bg-gradient-to-r from-[#003366] via-blue-700 to-[#fe9402] bg-clip-text text-3xl font-extrabold tracking-tight text-transparent sm:text-4xl lg:text-5xl">
+              Our Growing Impact
+            </h2>
+
+            <p className="mt-4 max-w-xl text-sm leading-7 text-gray-600 sm:text-base">
+              Creating sustained change through education, digital literacy, skill development,
+              health awareness, and community-focused outreach.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-gray-200 bg-white/75 p-4 shadow-sm backdrop-blur sm:p-5">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-sm font-bold text-gray-950">Impact at a glance</p>
+                <p className="mt-1 text-xs leading-5 text-gray-500">
+                  Built through field programs, partnerships, and local community engagement.
+                </p>
+              </div>
+
+              <div className="inline-flex w-fit items-center gap-2 rounded-lg bg-[#003366] px-4 py-2 text-xs font-bold uppercase tracking-wide text-white">
+                Program Reach
+                <ArrowUpRight className="h-4 w-4" />
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* GRID */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+          {impactStats.map((item) => {
+            const Icon = item.icon;
+            const tone = toneMap[item.tone];
 
-          {impactStats.map((item, idx) => (
-            <div
-              key={idx}
-              className="group bg-white border border-gray-100 rounded-2xl p-6 text-center shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-            >
-
-              {/* ICON */}
-              <div
-                className={`w-12 h-12 mx-auto mb-4 rounded-xl flex items-center justify-center ${colorMap[item.color]}`}
+            return (
+              <article
+                key={item.label}
+                className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg sm:p-5"
               >
-                <span className="text-lg font-bold">★</span>
-              </div>
+                <div className={`absolute left-0 top-0 h-1 w-full ${tone.accent}`} />
 
-              {/* NUMBER */}
-              <div className="text-2xl sm:text-3xl font-extrabold text-gray-900">
-                {item.number}
-              </div>
+                <div className="flex items-start justify-between gap-4">
+                  <div className={`flex h-10 w-10 items-center justify-center rounded-lg sm:h-11 sm:w-11 ${tone.icon}`}>
+                    <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
+                  </div>
 
-              {/* LABEL */}
-              <div className="text-xs sm:text-sm uppercase tracking-wider text-gray-400 mt-2 group-hover:text-gray-700 transition-colors">
-                {item.label}
-              </div>
+                  <ArrowUpRight className="h-4 w-4 text-gray-300 transition group-hover:text-[#fe9402]" />
+                </div>
 
-            </div>
-          ))}
+                <div className="mt-5 text-2xl font-extrabold tracking-tight text-gray-950 sm:mt-6 sm:text-3xl">
+                  {item.number}
+                </div>
 
+                <h3 className="mt-2 text-xs font-bold uppercase tracking-wide text-gray-800 sm:text-sm">
+                  {item.label}
+                </h3>
+
+                <p className="mt-3 text-[11px] leading-5 text-gray-500 sm:text-xs sm:leading-6">
+                  {item.detail}
+                </p>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
