@@ -116,7 +116,7 @@ const Navbar = () => {
               <img
                 src="/logo.png"
                 alt="IT CLUB FOUNDATION Logo"
-                className="h-15 md:h-25 w-auto"
+                className="h-16 md:h-24 w-auto"
               />
             </div>
           </Link>

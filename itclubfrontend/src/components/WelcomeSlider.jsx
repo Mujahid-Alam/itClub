@@ -221,6 +221,11 @@ const WelcomeSlider = () => {
           </div>
         </div>
 
+
+
+
+
+
         {/* RIGHT PHOTO GRID: 60% */}
         <div className="w-full md:w-[60%] bg-[#f8fafc] p-2 grid grid-cols-2 grid-rows-2 gap-2 h-96 md:h-full overflow-hidden">          
           
@@ -232,7 +237,7 @@ const WelcomeSlider = () => {
               ))}
             </Swiper>
           </div>
-{/* #019b07 */}
+
           <div className="bg-it-green flex flex-col items-center justify-center text-white text-center p-6 h-full rounded-2xl shadow-inner relative overflow-hidden group">
             <p className="text-xl lg:text-3xl font-black uppercase tracking-widest leading-none z-10">
               Connecting <br /> 
@@ -272,6 +277,11 @@ const WelcomeSlider = () => {
           </div>
           
         </div>
+
+
+
+
+
 
       </div>
     </section>

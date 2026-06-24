@@ -44,7 +44,7 @@ const PROJECT_DATA = [
     category: "Healthcare",
     description:
       "Organizing medical checkups, providing free prescribed medicines, and healthcare awareness for rural and suburban families.",
-    imagePath: "/Projects/project2.png",
+    imagePath: "/Projects/project4.png",
     icon: HeartPulse,
   },
   {
@@ -53,7 +53,7 @@ const PROJECT_DATA = [
     category: "Community Welfare",
     description:
       "Installing water filtration plants and promoting water conservation practices across water-scarce villages.",
-    imagePath: "/Projects/project3.png",
+    imagePath: "/Projects/project5.png",
     icon: Droplets,
   },
 ];
@@ -112,7 +112,9 @@ function ProjectCard({ project, onReadMore, className = "" }) {
 
 export default function Project() {
   const [showAll, setShowAll] = useState(false);
-  const [selectedProject, setSelectedProject] = useState(null);
+  // store only the selected project's id to avoid stale closures
+  const [selectedProjectId, setSelectedProjectId] = useState(null);
+  const selectedProject = PROJECT_DATA.find((p) => p.id === selectedProjectId) || null;
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50 py-16 sm:py-20">
@@ -199,16 +201,16 @@ export default function Project() {
               <ProjectCard
                 key={project.id}
                 project={project}
-                onReadMore={() => setSelectedProject(project)}
+                onReadMore={() => setSelectedProjectId(project.id)}
               />
             ))}
           </div>
         ) : (
           <div className="relative mt-10 overflow-hidden before:absolute before:left-0 before:top-0 before:z-20 before:h-full before:w-12 before:bg-gradient-to-r before:from-gray-50 before:to-transparent after:absolute after:right-0 after:top-0 after:z-20 after:h-full after:w-12 after:bg-gradient-to-l after:from-gray-50 after:to-transparent sm:before:w-24 sm:after:w-24">
             <div className="project-rail py-2">
-              {[...PROJECT_DATA, ...PROJECT_DATA].map((project, index) => (
+                {[...PROJECT_DATA, ...PROJECT_DATA].map((project, index) => (
                 <div key={`${project.id}-${index}`} className="w-[275px] shrink-0 sm:w-[340px]">
-                  <ProjectCard project={project} onReadMore={() => setSelectedProject(project)} />
+                  <ProjectCard project={project} onReadMore={() => setSelectedProjectId(project.id)} />
                 </div>
               ))}
             </div>
@@ -222,55 +224,162 @@ export default function Project() {
             type="button"
             aria-label="Close project details"
             className="absolute inset-0 cursor-default"
-            onClick={() => setSelectedProject(null)}
+            onClick={() => setSelectedProjectId(null)}
           />
 
-          <div className="relative z-10 flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-xl bg-white shadow-2xl">
-            <button
-              type="button"
-              aria-label="Close project details"
-              onClick={() => setSelectedProject(null)}
-              className="absolute right-3 top-3 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white transition hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white/50"
-            >
-              <X className="h-4 w-4" />
-            </button>
 
-            <div className="relative aspect-[16/9] shrink-0 bg-gray-100">
-              <img
-                src={selectedProject.imagePath}
-                alt={selectedProject.title}
-                className="h-full w-full object-cover"
-                onError={(event) => {
-                  event.currentTarget.onerror = null;
-                  event.currentTarget.src = fallbackImage;
-                }}
-              />
-            </div>
+<div className="relative z-10 w-full max-w-3xl max-h-[88vh] overflow-y-auto rounded-3xl bg-white shadow-2xl">
 
-            <div className="overflow-y-auto p-5 sm:p-6">
-              <span className="inline-flex items-center rounded-md bg-blue-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-blue-700">
-                {selectedProject.category}
-              </span>
+  {/* Close Button */}
+  <button
+    type="button"
+    onClick={() => setSelectedProjectId(null)}
+    className="absolute right-3 top-3 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/70"
+  >
+    <X className="h-4 w-4" />
+  </button>
 
-              <h3 className="mt-3 text-xl font-extrabold tracking-tight text-gray-950 sm:text-2xl">
-                {selectedProject.title}
-              </h3>
+  <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
 
-              <div className="mt-4 h-1 w-12 rounded-full bg-[#fe9402]" />
+    {/* IMAGE */}
+    <div className="relative min-h-[240px] bg-gray-100">
+      <img
+        src={selectedProject.imagePath}
+        alt={selectedProject.title}
+        className="h-full w-full object-cover"
+        onError={(e) => {
+          e.currentTarget.onerror = null;
+          e.currentTarget.src = fallbackImage;
+        }}
+      />
 
-              <p className="mt-5 text-sm leading-7 text-gray-600">{selectedProject.description}</p>
-            </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0231bf]/80 via-transparent to-transparent" />
 
-            <div className="flex justify-end border-t border-gray-100 bg-gray-50 p-4">
-              <button
-                type="button"
-                onClick={() => setSelectedProject(null)}
-                className="rounded-lg bg-[#003366] px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-white transition hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-blue-200"
-              >
-                Close
-              </button>
-            </div>
-          </div>
+      <div className="absolute bottom-5 left-5 right-5 text-white">
+        <span className="rounded-full bg-white/20 px-3 py-1 text-[9px] font-bold uppercase tracking-widest backdrop-blur">
+          {selectedProject.category}
+        </span>
+
+        <h2 className="mt-3 text-xl font-black leading-tight">
+          {selectedProject.title}
+        </h2>
+      </div>
+    </div>
+
+    {/* CONTENT */}
+    <div className="overflow-y-auto p-4">
+
+      <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-[#0231bf]">
+        Community Development Initiative
+      </span>
+
+      <h3 className="mt-2 text-lg font-black text-gray-900">
+        Project Overview
+      </h3>
+
+      <div className="mt-3 h-1 w-12 rounded-full bg-gradient-to-r from-[#019707] via-[#019806] to-[#0231bf]" />
+
+      <p className="mt-4 text-[11px] leading-6 text-gray-600">
+        {selectedProject.description}
+      </p>
+
+      {/* Stats */}
+      <div className="mt-5 grid grid-cols-2 gap-2">
+
+        <div className="rounded-2xl border border-green-100 bg-green-50 p-3">
+          <p className="text-[8px] font-bold uppercase text-gray-500">
+            Course Duration
+          </p>
+          <h4 className="mt-1 text-sm font-black text-[#019707]">
+            4 Months
+          </h4>
+        </div>
+
+        <div className="rounded-2xl border border-blue-100 bg-blue-50 p-3">
+          <p className="text-[8px] font-bold uppercase text-gray-500">
+            Daily Schedule
+          </p>
+          <h4 className="mt-1 text-sm font-black text-[#0231bf]">
+            4 Hours
+          </h4>
+        </div>
+
+        <div className="rounded-2xl border border-orange-100 bg-orange-50 p-3">
+          <p className="text-[8px] font-bold uppercase text-gray-500">
+            Target Group
+          </p>
+          <h4 className="mt-1 text-xs font-black text-[#fe9402]">
+            Youth & Students
+          </h4>
+        </div>
+
+        <div className="rounded-2xl border border-indigo-100 bg-indigo-50 p-3">
+          <p className="text-[8px] font-bold uppercase text-gray-500">
+            Fee Structure
+          </p>
+          <h4 className="mt-1 text-sm font-black text-[#0231bf]">
+            100% Free
+          </h4>
+        </div>
+
+      </div>
+
+      {/* Mission */}
+      <div className="mt-5 rounded-2xl bg-gradient-to-r from-[#019707] via-[#019806] to-[#0231bf] p-4 text-white">
+
+        <p className="text-[8px] font-bold uppercase tracking-[0.25em] text-white/80">
+          Project Mission
+        </p>
+
+        <h4 className="mt-2 text-base font-black">
+          Bridging the Digital Divide
+        </h4>
+
+        <p className="mt-2 text-[11px] leading-6 text-white/90">
+          Building scalable technical skill sets among regional youth clusters
+          and empowering communities through digital literacy.
+        </p>
+
+      </div>
+
+      {/* Buttons */}
+      <div className="mt-5 flex gap-2">
+
+        <a
+          href="/donate-now"
+          className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#019707] via-[#019806] to-[#0231bf] px-5 py-2 text-[10px] font-bold uppercase tracking-wider text-white shadow-lg"
+        >
+          Support This Project
+        </a>
+
+        <button
+          type="button"
+          onClick={() => setSelectedProject(null)}
+          className="rounded-xl border border-gray-200 px-5 py-2 text-[10px] font-bold uppercase text-gray-600 hover:bg-gray-50"
+        >
+          Close
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
         </div>
       )}
     </section>
