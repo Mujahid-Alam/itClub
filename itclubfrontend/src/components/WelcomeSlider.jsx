@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
-
+import { HiOutlineHeart } from "react-icons/hi2";
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import Donate from '../pages/Donate';
@@ -137,16 +137,19 @@ const WelcomeSlider = () => {
         <div className="w-full md:w-[40%] p-10 md:p-20 flex flex-col justify-center relative shrink-0 bg-white overflow-hidden">
           {/* Background watermark */}
           <div className="relative">
-            <span className="hidden md:block absolute top-35 -right-45 -translate-y-1/2 opacity-[0.07] rotate-90 font-black blur-[0.7px] text-left text-4xl tracking-[0.2em]">
-              ITCLUB <br /> FOUNDATION
+            {/* Desktop view ke liye */}
+            <span className="hidden md:block absolute top-35 -right-76 -translate-y-1/2 opacity-[0.07] rotate-90 font-black blur-[0.7px] text-left text-4xl tracking-[0.2em]">
+              ITCLUB FOUNDATION
             </span>
-            <span className="block md:hidden absolute top-22 -right-35 opacity-[0.07] rotate-90 font-black blur-[0.7px] text-left text-4xl tracking-[0.2em]">
-              ITCLUB <br /> FOUNDATION
+
+            {/* mobile view ke liye */}
+            <span className="md:hidden absolute top-28 -right-47 opacity-[0.08] rotate-90 font-black text-2xl tracking-[0.2em] pointer-events-none">
+              ITCLUB FOUNDATION
             </span>
           </div>
 
           <div
-            className="space-y-6 inline-block w-full cursor-default relative z-10"
+            className="space-y-2 inline-block w-full cursor-default relative z-10 -mt-10"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
@@ -155,6 +158,7 @@ const WelcomeSlider = () => {
               <div className="flex items-center gap-3">
                 <span className="text-it-green font-extrabold tracking-[0.4em] text-[10px] uppercase"></span>
               </div>
+              <h5 className="text-gray-400 font-bold">Our Focus Area :</h5>
               <p className="text-gray-400 font-bold text-[10px] uppercase tracking-widest pl-9">
                 {contentData[currentIndex].slogan}
               </p>
@@ -185,50 +189,35 @@ const WelcomeSlider = () => {
               </p>
 
               {/* BOTTOM SECTION */}
-              <div className="mt-10 flex items-center justify-between w-full">
-                <div className="flex flex-col">
-                  <span className="text-[9px] font-black uppercase text-it-blue opacity-50 tracking-widest leading-none mb-1">
+              <div className="mt-10 flex items-center w-full">
+                <div>
+                  <span className="text-[9px] font-black uppercase text-it-blue opacity-50 tracking-widest leading-none mb-1 block">
                     Our Global Mission
                   </span>
-                  <span className="text-xs font-bold text-gray-700 whitespace-nowrap">
+
+                  <span className="text-xs font-bold text-gray-700">
                     Better World, Brighter Future
                   </span>
                 </div>
 
-                <div className="flex items-center">
-                  <style>
-                    {`
-                      @keyframes greenBlueLoop {
-                        0%, 100% { background-color: #10b981; } 
-                        50% { background-color: #1e3a8a; }      
-                      }
-                      .animate-donate-btn {
-                        animation: greenBlueLoop 3s ease-in-out infinite;
-                      }
-                    `}
-                  </style>
-
-                  <a
-                    href="/donate-now"
-                    aria-label="Make a donation"
-                    className="animate-donate-btn text-white text-[10px] font-black uppercase tracking-[0.2em] px-8 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 no-underline flex items-center justify-center whitespace-nowrap"
-                  >
-                    DONATE
-                  </a>
-                </div>
+                <a
+                  href="/donate-now"
+                  className="ml-auto animate-donate-btn text-white text-[10px] font-extrabold uppercase tracking-[0.15em] px-4 py-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 active:scale-95 no-underline flex items-center gap-2 whitespace-nowrap"
+                >
+                   <HiOutlineHeart className="text-[15px]" />
+                  DONATE NOW
+                </a>
               </div>
+
+
+
             </div>
           </div>
         </div>
 
 
-
-
-
-
         {/* RIGHT PHOTO GRID: 60% */}
-        <div className="w-full md:w-[60%] bg-[#f8fafc] p-2 grid grid-cols-2 grid-rows-2 gap-2 h-96 md:h-full overflow-hidden">          
-          
+        <div className="w-full md:w-[60%] bg-[#f8fafc] p-1 grid grid-cols-2 grid-rows-2 gap-2 h-96 md:h-full overflow-hidden">          
           <div className="relative overflow-hidden rounded-2xl bg-gray-200 h-full shadow-sm">
             {/* Delay बढ़ाकर 4200ms किया */}
             <Swiper {...sliderSettings(4200)}>
@@ -277,10 +266,6 @@ const WelcomeSlider = () => {
           </div>
           
         </div>
-
-
-
-
 
 
       </div>

@@ -26,7 +26,7 @@ const HomePage = () => (
 
 
     <CSR />
-    <Annual />
+    {/* <Annual /> */}
     <Footer />
   </div>
 );

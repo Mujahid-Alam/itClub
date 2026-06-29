@@ -119,22 +119,33 @@ export default function NgoProfile() {
             ))}
           </div>
 
-          <div className="mt-8 grid gap-3 sm:grid-cols-3">
-            {trustBadges.map((badge) => {
-              const Icon = badge.icon;
+<div className="mt-8 grid grid-cols-3 gap-2 sm:gap-3">
+  {trustBadges.map((badge) => {
+    const Icon = badge.icon;
 
-              return (
-                <div
-                  key={badge.label}
-                  className="rounded-xl border border-gray-200 bg-white/80 p-4 shadow-sm backdrop-blur"
-                >
-                  <Icon className="h-5 w-5 text-[#003366]" />
-                  <p className="mt-3 text-sm font-extrabold text-gray-950">{badge.label}</p>
-                  <p className="mt-1 text-[11px] leading-5 text-gray-500">{badge.text}</p>
-                </div>
-              );
-            })}
-          </div>
+    return (
+      <div
+        key={badge.label}
+        className="rounded-xl border border-gray-200 bg-white/80 p-2 sm:p-4 shadow-sm backdrop-blur text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+      >
+        {/* Icon */}
+        <div className="mx-auto flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-blue-50">
+          <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-[#003366]" />
+        </div>
+
+        {/* Title */}
+        <p className="mt-2 text-[10px] sm:text-sm font-extrabold leading-tight text-gray-900">
+          {badge.label}
+        </p>
+
+        {/* Description */}
+        <p className="mt-1 hidden sm:block text-[11px] leading-5 text-gray-500">
+          {badge.text}
+        </p>
+      </div>
+    );
+  })}
+</div>
 
           <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-gray-200 pt-5">
             <div className="inline-flex items-center gap-3 text-sm font-bold text-gray-800">
@@ -147,6 +158,7 @@ export default function NgoProfile() {
             <ArrowRight className="h-4 w-4 text-[#fe9402]" />
           </div>
         </div>
+        
       </div>
     </section>
   );

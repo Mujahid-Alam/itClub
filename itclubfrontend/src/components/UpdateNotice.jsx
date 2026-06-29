@@ -42,7 +42,7 @@ export default function UpdateNotice() {
           <h2 className="text-xl md:text-2xl font-bold text-slate-50">
             Website Update Notice
           </h2>
-          <h5> by @rZOO :)</h5>
+          
         </div>
 
         {/* Content */}

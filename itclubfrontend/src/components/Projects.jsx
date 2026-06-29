@@ -44,7 +44,7 @@ const PROJECT_DATA = [
     category: "Healthcare",
     description:
       "Organizing medical checkups, providing free prescribed medicines, and healthcare awareness for rural and suburban families.",
-    imagePath: "/Projects/project4.png",
+    imagePath: "/Projects/project.png",
     icon: HeartPulse,
   },
   {
@@ -53,7 +53,7 @@ const PROJECT_DATA = [
     category: "Community Welfare",
     description:
       "Installing water filtration plants and promoting water conservation practices across water-scarce villages.",
-    imagePath: "/Projects/project5.png",
+    imagePath: "/Projects/project.png",
     icon: Droplets,
   },
 ];

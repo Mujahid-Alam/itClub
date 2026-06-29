@@ -3,6 +3,11 @@ import {
   FaInstagram,
   FaLinkedin,
   FaWhatsapp,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaHandshake,
+  FaUsers,
+  FaClipboardList,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
@@ -66,59 +71,62 @@ const TopBar = () => {
             </a>
 
             <span className="text-gray-500 hidden sm:inline">|</span>
+              <a
+                href="tel:+918409744414"
+                className="hidden md:flex items-center gap-1 hover:text-it-green whitespace-nowrap transition-colors"
+              >
+                <FaPhoneAlt className="text-[13px] md:text-[15px]" />
+                <span>+91-8409744414</span>
+              </a>
 
-            <a
-              href="tel:+918409744414"
-              className="hidden md:block hover:text-it-green whitespace-nowrap transition-colors"
-            >
-              +91-8409744414
-            </a>
-
-            <a
-              href="mailto:info@itclubfoundation.org"
-              className="hover:text-it-green lowercase whitespace-nowrap transition-colors hidden lg:block"
-            >
-              info@itclubfoundation.org
-            </a>
+              <a
+                href="mailto:info@itclubfoundation.org"
+                className="hidden lg:flex items-center gap-1 hover:text-it-green lowercase whitespace-nowrap transition-colors"
+              >
+                <FaEnvelope className="text-[13px] md:text-[15px]" />
+                <span>info@itclubfoundation.org</span>
+              </a>
           </div>
+            {/* RIGHT SECTION */}
+            <div className="grid grid-cols-3 md:flex gap-1 md:gap-3 w-full md:w-auto text-[10px] md:text-[11px] font-bold">
 
-          {/* RIGHT SECTION */}
-          <div className="grid grid-cols-3 md:flex gap-1 md:gap-3 w-full md:w-auto text-[10px] md:text-[11px] font-bold">
+              {/* CSR */}
+              <a
+                href="#"
+                className="bg-[#003d7a] text-white px-2 md:px-4 py-2 md:py-1 rounded-sm hover:bg-it-green transition-all active:scale-95 shadow-sm flex items-center justify-center gap-2"
+              >
+                <FaHandshake className="text-[13px] md:text-[15px]" />
+                <span className="block md:hidden">CSR</span>
+                <span className="hidden md:block">
+                  CSR Partner With Us
+                </span>
+              </a>
 
-            {/* CSR */}
-            <a
-              href="#"
-              className="bg-[#003d7a] text-white px-2 md:px-4 py-2 md:py-1 rounded-sm hover:bg-it-green transition-all active:scale-95 text-center shadow-sm"
-            >
-              <span className="block md:hidden">CSR</span>
-              <span className="hidden md:block">
-                CSR Partner With Us
-              </span>
-            </a>
+              {/* Profile */}
+              <a
+                href="#"
+                className="bg-[#003d7a] text-white px-2 md:px-4 py-2 md:py-1 rounded-sm hover:bg-it-green transition-all active:scale-95 shadow-sm flex items-center justify-center gap-2"
+              >
+                <FaClipboardList className="text-[13px] md:text-[15px]" />
+                <span className="block md:hidden">Profile</span>
+                <span className="hidden md:block">
+                  Organization Profile
+                </span>
+              </a>
 
-            {/* Profile */}
-            <a
-              href="#"
-              className="bg-[#003d7a] text-white px-2 md:px-4 py-2 md:py-1 rounded-sm hover:bg-it-green transition-all active:scale-95 text-center shadow-sm"
-            >
-              <span className="block md:hidden">Profile</span>
-              <span className="hidden md:block">
-                Organization Profile
-              </span>
-            </a>
+              {/* Implementation Partner */}
+              <a
+                href="#"
+                className="bg-[#003d7a] text-white px-2 md:px-4 py-2 md:py-1 rounded-sm hover:bg-it-green transition-all active:scale-95 shadow-sm flex items-center justify-center gap-2"
+              >
+                <FaUsers className="text-[13px] md:text-[15px]" />
+                <span className="block md:hidden">Partner</span>
+                <span className="hidden md:block">
+                  Implementation Partner
+                </span>
+              </a>
 
-            {/* Implementation Partner */}
-            <a
-              href="#"
-              className="bg-[#003d7a] text-white px-2 md:px-4 py-2 md:py-1 rounded-sm hover:bg-it-green transition-all active:scale-95 text-center shadow-sm"
-            >
-              <span className="block md:hidden">Partner</span>
-              <span className="hidden md:block">
-                Implementation Partner
-              </span>
-            </a>
-
-          </div>
+            </div>
         </div>
       </div>
     </div>

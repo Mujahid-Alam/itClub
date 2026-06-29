@@ -107,7 +107,7 @@ const Navbar = () => {
   return (
     <nav className="bg-white text-black sticky top-0 z-50 shadow-lg font-bold uppercase text-[12px]">
       <div className="max-w-7xl mx-auto px-4 lg:px-6">
-        <div className="flex justify-between items-stretch h-14 md:h-24">
+        <div className="flex justify-between items-stretch h-20 md:h-24">
           
           {/* BRANDING SECTION */}
           <Link to="/" className="flex items-center gap-3 group">
@@ -116,7 +116,7 @@ const Navbar = () => {
               <img
                 src="/logo.png"
                 alt="IT CLUB FOUNDATION Logo"
-                className="h-16 md:h-24 w-auto"
+                className="h-20 md:h-24 w-auto"
               />
             </div>
           </Link>
@@ -127,16 +127,17 @@ const Navbar = () => {
               <li key={item.name} className="relative group flex">
                   <Link
                     to={item.path}
-                    className={`relative flex items-center gap-1 transition-colors duration-150 ${
-                      item.name === "Donation"
-                        ? "bg-orange-500 text-white rounded-md px-4 py-1.5 h-8 self-center hover:bg-orange-600"
-                        : "px-4 h-full"
-                    }`}
-                  >
-                  <span className="group-hover:text-it-green transition-colors duration-150">
-                    {item.name}
-                  </span>
 
+                    // edit is button pe karna hai 
+
+                    className={`relative flex items-center gap-1 transition-all duration-300 ${
+                      item.name === "Donation"
+                        ? "animate-donate-btn text-white rounded-md px-4 py-1.5 h-8 self-center hover:text-white"
+                        : "px-4 h-full hover:text-it-green"
+                    }`}
+                                      >
+                    <span>{item.name}</span>
+                    {/* end */}
                   {/* Dropdown Arrow */}
                   {item.submenu && (
                     <svg
@@ -280,9 +281,9 @@ const Navbar = () => {
                 <Link
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className={`block px-4 py-4 font-semibold uppercase text-[13px] ${
+                  className={`block px-4 py-2 font-semibold uppercase text-[13px] ${
                     item.name === "Donation"
-                      ? "bg-orange-500 text-white mx-2 my-2 rounded-md py-1 text-center hover:bg-orange-600"
+                      ? "animate-donate-btn text-white mx-2 my-2 rounded-md py-2 text-center hover:text-white"
                       : ""
                   }`}
                 >

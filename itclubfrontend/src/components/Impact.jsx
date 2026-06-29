@@ -123,13 +123,13 @@ export default function ImpactSection() {
                   {item.label}
                 </h3>
 
-                <p className="mt-3 text-[11px] leading-5 text-gray-500 sm:text-xs sm:leading-6">
-                  {item.detail}
-                </p>
               </article>
             );
           })}
         </div>
+
+
+        
       </div>
     </section>
   );
