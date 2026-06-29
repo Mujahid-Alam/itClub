@@ -8,6 +8,7 @@ import {
   FaHandshake,
   FaUsers,
   FaClipboardList,
+  FaYoutube,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
@@ -59,7 +60,15 @@ const TopBar = () => {
             >
               <FaLinkedin className="text-[13px] md:text-[15px]" />
             </a>
-
+              <a
+                href="https://www.youtube.com/@YourChannelName"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-red-600 transition-colors"
+                aria-label="YouTube"
+              >
+                <FaYoutube className="text-[13px] md:text-[15px]" />
+              </a>
             <a
               href="https://wa.me/918292999947"
               target="_blank"
@@ -70,12 +79,13 @@ const TopBar = () => {
               <FaWhatsapp className="text-[13px] md:text-[15px]" />
             </a>
 
+
             <span className="text-gray-500 hidden sm:inline">|</span>
               <a
                 href="tel:+918409744414"
                 className="hidden md:flex items-center gap-1 hover:text-it-green whitespace-nowrap transition-colors"
               >
-                <FaPhoneAlt className="text-[13px] md:text-[15px]" />
+                <FaPhoneAlt className="text-[13px] md:text-[14px]" />
                 <span>+91-8409744414</span>
               </a>
 
@@ -83,7 +93,7 @@ const TopBar = () => {
                 href="mailto:info@itclubfoundation.org"
                 className="hidden lg:flex items-center gap-1 hover:text-it-green lowercase whitespace-nowrap transition-colors"
               >
-                <FaEnvelope className="text-[13px] md:text-[15px]" />
+                <FaEnvelope className="text-[13px] md:text-[14px]" />
                 <span>info@itclubfoundation.org</span>
               </a>
           </div>
@@ -107,7 +117,7 @@ const TopBar = () => {
                 href="#"
                 className="bg-[#003d7a] text-white px-2 md:px-4 py-2 md:py-1 rounded-sm hover:bg-it-green transition-all active:scale-95 shadow-sm flex items-center justify-center gap-2"
               >
-                <FaClipboardList className="text-[13px] md:text-[15px]" />
+                <FaClipboardList className="text-[13px] md:text-[14px]" />
                 <span className="block md:hidden">Profile</span>
                 <span className="hidden md:block">
                   Organization Profile

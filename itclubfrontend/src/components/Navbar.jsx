@@ -100,7 +100,7 @@ const Navbar = () => {
     { name: 'Media', path: '/media' },
     { name: 'Join Us', path: '/join-us' },
     { name: 'Contact Us', path: '/contact-us' },
-    { name: 'Donation', path: '/donate-now' },
+    { name: 'Donate Now', path: '/donate-now' },
 
   ];
 
@@ -131,7 +131,7 @@ const Navbar = () => {
                     // edit is button pe karna hai 
 
                     className={`relative flex items-center gap-1 transition-all duration-300 ${
-                      item.name === "Donation"
+                      item.name === "Donate Now"
                         ? "animate-donate-btn text-white rounded-md px-4 py-1.5 h-8 self-center hover:text-white"
                         : "px-4 h-full hover:text-it-green"
                     }`}
@@ -282,7 +282,7 @@ const Navbar = () => {
                   to={item.path}
                   onClick={() => setIsOpen(false)}
                   className={`block px-4 py-2 font-semibold uppercase text-[13px] ${
-                    item.name === "Donation"
+                    item.name === "Donate Now"
                       ? "animate-donate-btn text-white mx-2 my-2 rounded-md py-2 text-center hover:text-white"
                       : ""
                   }`}

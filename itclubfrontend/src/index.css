@@ -73,6 +73,9 @@
 /* ================================
    Premium Donate Button
 ================================ */
+/* ================================
+   Premium Donate Button
+================================ */
 
 .animate-donate-btn {
   position: relative;
@@ -98,114 +101,124 @@
   color: #fff;
   font-weight: 700;
 
-  border: 1px solid rgba(255,255,255,.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 
   box-shadow:
-    0 8px 18px rgba(255,144,1,.25),
-    inset 0 1px 0 rgba(255,255,255,.25);
+    0 8px 18px rgba(255, 144, 1, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
 
   transition:
-    transform .35s ease,
-    box-shadow .35s ease,
-    filter .35s ease;
+    background 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    filter 0.35s ease;
 }
 
 /* Moving shine */
-.animate-donate-btn::before{
-  content:"";
-  position:absolute;
-  inset:0;
+.animate-donate-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
 
-  background:linear-gradient(
+  background: linear-gradient(
     115deg,
     transparent 20%,
-    rgba(255,255,255,.45) 50%,
+    rgba(255, 255, 255, 0.45) 50%,
     transparent 80%
   );
 
-  transform:translateX(-180%);
-  animation:donateShine 5s ease-in-out infinite;
+  transform: translateX(-180%);
+  animation: donateShine 5s ease-in-out infinite;
 }
 
 /* Soft glow */
-.animate-donate-btn::after{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  border-radius:inherit;
-  z-index:-1;
+.animate-donate-btn::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  z-index: -1;
 
-  background:#ff9001;
-  filter:blur(18px);
-  opacity:.18;
+  background: #ff9001;
+  filter: blur(18px);
+  opacity: 0.18;
 
-  animation:donateGlow 4s ease-in-out infinite;
+  animation: donateGlow 4s ease-in-out infinite;
 }
 
-@keyframes donateGradient{
-
-  0%{
-    background-position:0% 50%;
+@keyframes donateGradient {
+  0% {
+    background-position: 0% 50%;
   }
 
-  50%{
-    background-position:100% 50%;
+  50% {
+    background-position: 100% 50%;
   }
 
-  100%{
-    background-position:0% 50%;
+  100% {
+    background-position: 0% 50%;
   }
-
 }
 
-@keyframes donateShine{
-
-  0%,35%{
-    transform:translateX(-180%);
+@keyframes donateShine {
+  0%,
+  35% {
+    transform: translateX(-180%);
   }
 
-  65%{
-    transform:translateX(180%);
+  65% {
+    transform: translateX(180%);
   }
 
-  100%{
-    transform:translateX(180%);
+  100% {
+    transform: translateX(180%);
   }
-
 }
 
-@keyframes donateGlow{
-
-  0%,100%{
-    opacity:.18;
-    transform:scale(1);
+@keyframes donateGlow {
+  0%,
+  100% {
+    opacity: 0.18;
+    transform: scale(1);
   }
 
-  50%{
-    opacity:.35;
-    transform:scale(1.03);
+  50% {
+    opacity: 0.35;
+    transform: scale(1.03);
   }
-
 }
 
-.animate-donate-btn:hover{
+/* ================================
+   Hover Effect
+================================ */
 
-  animation-play-state:paused;
+.animate-donate-btn:hover {
+  /* Deep Orange Gradient */
+  background: linear-gradient(
+    135deg,
+    #c75b00 0%,
+    #d96a00 30%,
+    #ea7800 55%,
+    #d96a00 80%,
+    #b84f00 100%
+  );
 
-  transform:
-    translateY(-3px)
-    scale(1.03);
+  transform: translateY(-3px) scale(1.03);
 
-  filter:brightness(1.05);
+  filter: brightness(0.96);
 
   box-shadow:
-    0 16px 34px rgba(255,144,1,.38),
-    inset 0 1px 0 rgba(255,255,255,.3);
+    0 16px 34px rgba(201, 95, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 
-  color:#fff;
-
+  color: #fff;
 }
 
-.animate-donate-btn:hover::before{
-  animation-duration:2s;
+.animate-donate-btn:hover::before {
+  animation-duration: 2s;
+}
+
+.animate-donate-btn:hover::after {
+  background: #c75b00;
+  opacity: 0.32;
 }

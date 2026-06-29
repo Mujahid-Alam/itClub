@@ -138,14 +138,14 @@ const WelcomeSlider = () => {
           {/* Background watermark */}
           <div className="relative">
             {/* Desktop view ke liye */}
-            <span className="hidden md:block absolute top-35 -right-76 -translate-y-1/2 opacity-[0.07] rotate-90 font-black blur-[0.7px] text-left text-4xl tracking-[0.2em]">
+            <span className="hidden md:block absolute top-35 -right-66 -translate-y-1/2 opacity-[0.10] rotate-90 font-black blur-[0.7px] text-left text-3xl tracking-[0.2em]">
               ITCLUB FOUNDATION
             </span>
 
             {/* mobile view ke liye */}
-            <span className="md:hidden absolute top-28 -right-47 opacity-[0.08] rotate-90 font-black text-2xl tracking-[0.2em] pointer-events-none">
+            {/* <span className="md:hidden absolute top-32 -right-46 opacity-[0.10] rotate-90 font-black text-2xl tracking-[0.2em] pointer-events-none">
               ITCLUB FOUNDATION
-            </span>
+            </span> */}
           </div>
 
           <div
@@ -158,17 +158,21 @@ const WelcomeSlider = () => {
               <div className="flex items-center gap-3">
                 <span className="text-it-green font-extrabold tracking-[0.4em] text-[10px] uppercase"></span>
               </div>
-              <h5 className="text-gray-400 font-bold">Our Focus Area :</h5>
-              <p className="text-gray-400 font-bold text-[10px] uppercase tracking-widest pl-9">
-                {contentData[currentIndex].slogan}
-              </p>
+   
             </div>
+              <div className="flex items-center gap-3 -mb-1">
+                
 
+                <h5 className="text-gray-400 font-bold">
+                  Our Mission Areas
+                </h5>
+                <span className="h-[3px] w-10 rounded-full bg-[#fe9402]"></span>
+              </div>
             {/* Title Section */}
             <div className="space-y-2 pl-0 md:pl-2">
-              <h2 className="text-3xl lg:text-5xl font-black text-it-blue leading-tight uppercase tracking-tight">
+              <h2 className="text-2xl lg:text-5xl font-black text-it-blue leading-tight uppercase tracking-tight">
                 {contentData[currentIndex].title} <br />
-                <span className="relative inline-block mt-1">
+                <span className="relative inline-block mt-0">
                   <span className="opacity-10 transition-all duration-500">
                     {contentData[currentIndex].sub}
                   </span>
@@ -184,9 +188,16 @@ const WelcomeSlider = () => {
 
             {/* Description Section */}
             <div className="pt-2 border-l-4 border-it-green/80 pl-6 w-full">
-              <p className="text-sm md:text-lg text-gray-500 font-bold leading-relaxed tracking-tight max-w-sm">
-                {contentData[currentIndex].desc}
-              </p>
+<p
+  className="max-w-md text-base md:text-lg font-medium leading-8 text-slate-600 tracking-wide text-justify"
+  style={{
+    hyphens: "auto",
+    WebkitHyphens: "auto",
+    msHyphens: "auto",
+  }}
+>
+  {contentData[currentIndex].desc}
+</p>
 
               {/* BOTTOM SECTION */}
               <div className="mt-10 flex items-center w-full">
@@ -209,10 +220,29 @@ const WelcomeSlider = () => {
                 </a>
               </div>
 
-
-
+              {/* Slider Indicators */}
+              <div className="mt-8 flex items-center gap-3">
+                {contentData.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`relative h-2 rounded-full transition-all duration-300 ${
+                      currentIndex === index
+                        ? "w-10 bg-it-green"
+                        : "w-2 bg-gray-300 hover:bg-orange-500"
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  >
+                    {currentIndex === index && (
+                      <span className="absolute inset-0 rounded-full animate-pulse bg-it-green/40"></span>
+                    )}
+                  </button>
+                ))}
+              </div>
             </div>
+
           </div>
+
         </div>
 
 
