@@ -134,11 +134,11 @@ const WelcomeSlider = () => {
       <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row flex-1 w-full overflow-hidden shadow-2xl my-2 rounded-xl border border-gray-100 bg-white">        
         
         {/* LEFT CONTENT: 40% */}
-        <div className="w-full md:w-[40%] p-10 md:p-20 flex flex-col justify-center relative shrink-0 bg-white overflow-hidden">
+        <div className="w-full md:w-[40%] px-6 py-10 md:px-10 md:pt-6 md:pb-16 flex flex-col justify-center relative shrink-0 bg-white overflow-hidden">
           {/* Background watermark */}
           <div className="relative">
             {/* Desktop view ke liye */}
-            <span className="hidden md:block absolute top-35 -right-66 -translate-y-1/2 opacity-[0.10] rotate-90 font-black blur-[0.7px] text-left text-3xl tracking-[0.2em]">
+            <span className="hidden md:block absolute top-45 -right-57 -translate-y-1/2 opacity-[0.07] rotate-90 font-black blur-[0.7px] text-left text-3xl tracking-[0.2em]">
               ITCLUB FOUNDATION
             </span>
 
@@ -149,7 +149,7 @@ const WelcomeSlider = () => {
           </div>
 
           <div
-            className="space-y-2 inline-block w-full cursor-default relative z-10 -mt-10"
+            className="space-y-2 inline-block w-full cursor-default relative z-10  -mt-4 md:-mt-2"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
@@ -160,16 +160,17 @@ const WelcomeSlider = () => {
               </div>
    
             </div>
-              <div className="flex items-center gap-3 -mb-1">
-                
 
-                <h5 className="text-gray-400 font-bold">
-                  Our Mission Areas
-                </h5>
-                <span className="h-[3px] w-10 rounded-full bg-[#fe9402]"></span>
-              </div>
+            <div className="flex items-center gap-2">
+              <span className="h-2.5 w-2.5 rounded-full bg-[#FE9402]"></span>
+              <h5 className="text-sm font-semibold tracking-wide text-slate-700">
+                Our Mission Areas
+              </h5>
+            </div>
+
+            
             {/* Title Section */}
-            <div className="space-y-2 pl-0 md:pl-2">
+            <div className=" space-y-2 pl-0 md:pl-2">
               <h2 className="text-2xl lg:text-5xl font-black text-it-blue leading-tight uppercase tracking-tight">
                 {contentData[currentIndex].title} <br />
                 <span className="relative inline-block mt-0">
@@ -187,20 +188,19 @@ const WelcomeSlider = () => {
             </div>
 
             {/* Description Section */}
-            <div className="pt-2 border-l-4 border-it-green/80 pl-6 w-full">
-<p
-  className="max-w-md text-base md:text-lg font-medium leading-8 text-slate-600 tracking-wide text-justify"
-  style={{
-    hyphens: "auto",
-    WebkitHyphens: "auto",
-    msHyphens: "auto",
-  }}
->
-  {contentData[currentIndex].desc}
-</p>
+            <div className=" pt-2 border-l-4 border-it-green/80 pl-6 w-full">
+              <p
+                className="max-w-md text-base md:text-lg font-medium leading-7 md:leading-8 text-slate-600 tracking-wide text-justify"                style={{
+                  hyphens: "auto",
+                  WebkitHyphens: "auto",
+                  msHyphens: "auto",
+                }}
+              >
+                {contentData[currentIndex].desc}
+              </p>
 
               {/* BOTTOM SECTION */}
-              <div className="mt-10 flex items-center w-full">
+              <div className=" mt-0 md:mt-10  flex items-center w-full ">
                 <div>
                   <span className="text-[9px] font-black uppercase text-it-blue opacity-50 tracking-widest leading-none mb-1 block">
                     Our Global Mission
@@ -213,7 +213,7 @@ const WelcomeSlider = () => {
 
                 <a
                   href="/donate-now"
-                  className="ml-auto animate-donate-btn text-white text-[10px] font-extrabold uppercase tracking-[0.15em] px-4 py-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 active:scale-95 no-underline flex items-center gap-2 whitespace-nowrap"
+                  className="ml-auto mt-7 animate-donate-btn text-white text-[10px] font-extrabold uppercase tracking-[0.15em] px-4 py-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 active:scale-95 no-underline flex items-center gap-2 whitespace-nowrap"
                 >
                    <HiOutlineHeart className="text-[15px]" />
                   DONATE NOW

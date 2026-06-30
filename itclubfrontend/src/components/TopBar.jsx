@@ -21,21 +21,21 @@ const TopBar = () => {
           {/* LEFT SECTION */}
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 md:gap-4 text-[10px] md:text-[11px] font-semibold uppercase">
 
-            <a
-              href="https://www.facebook.com/itclubfoundatio"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-it-green transition-colors"
-              aria-label="Facebook"
-            >
-              <FaFacebook className="text-[13px] md:text-[15px]" />
-            </a>
+          <a
+            href="https://www.facebook.com/itclubfoundatio"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#1877F2] transition-colors"
+            aria-label="Facebook"
+          >
+            <FaFacebook className="text-[13px] md:text-[15px]" />
+          </a>
 
             <a
               href="https://www.instagram.com/itclubfoundation/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-it-green transition-colors"
+              className="hover:text-[#E4405F] transition-colors"
               aria-label="Instagram"
             >
               <FaInstagram className="text-[13px] md:text-[15px]" />
@@ -45,23 +45,23 @@ const TopBar = () => {
               href="https://x.com/itclubfoundatio"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-it-green transition-colors"
+              className="hover:text-black transition-colors"
               aria-label="Twitter X"
             >
               <FaXTwitter className="text-[12px] md:text-[14px]" />
             </a>
 
-            <a
-              href="https://www.linkedin.com/in/itclubfoundation/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-it-green transition-colors"
-              aria-label="LinkedIn"
-            >
-              <FaLinkedin className="text-[13px] md:text-[15px]" />
-            </a>
               <a
-                href="https://www.youtube.com/@YourChannelName"
+                href="https://www.linkedin.com/in/itclubfoundation/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#0A66C2] transition-colors"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin className="text-[13px] md:text-[15px]" />
+              </a>
+              <a
+                href="https://www.youtube.com/@itclubfoundation"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-red-600 transition-colors"
@@ -69,33 +69,34 @@ const TopBar = () => {
               >
                 <FaYoutube className="text-[13px] md:text-[15px]" />
               </a>
-            <a
-              href="https://wa.me/918292999947"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-it-green transition-colors"
-              aria-label="WhatsApp"
-            >
-              <FaWhatsapp className="text-[13px] md:text-[15px]" />
-            </a>
-
-
-            <span className="text-gray-500 hidden sm:inline">|</span>
               <a
-                href="tel:+918409744414"
-                className="hidden md:flex items-center gap-1 hover:text-it-green whitespace-nowrap transition-colors"
+                href="https://wa.me/918292999947"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#25D366] transition-colors"
+                aria-label="WhatsApp"
               >
-                <FaPhoneAlt className="text-[13px] md:text-[14px]" />
-                <span>+91-8409744414</span>
+                <FaWhatsapp className="text-[13px] md:text-[15px]" />
               </a>
 
-              <a
-                href="mailto:info@itclubfoundation.org"
-                className="hidden lg:flex items-center gap-1 hover:text-it-green lowercase whitespace-nowrap transition-colors"
-              >
-                <FaEnvelope className="text-[13px] md:text-[14px]" />
-                <span>info@itclubfoundation.org</span>
-              </a>
+
+<span className="text-gray-500 hidden sm:inline">|</span>
+
+<a
+  href="tel:+918409744414"
+  className="hidden md:flex items-center gap-1 hover:text-[#fe9101] whitespace-nowrap transition-colors"
+>
+  <FaPhoneAlt className="text-[13px] md:text-[14px]" />
+  <span>+91-8409744414</span>
+</a>
+
+<a
+  href="mailto:info@itclubfoundation.org"
+  className="hidden lg:flex items-center gap-1 hover:text-[#fe9101] lowercase whitespace-nowrap transition-colors"
+>
+  <FaEnvelope className="text-[13px] md:text-[14px]" />
+  <span>info@itclubfoundation.org</span>
+</a>
           </div>
             {/* RIGHT SECTION */}
             <div className="grid grid-cols-3 md:flex gap-1 md:gap-3 w-full md:w-auto text-[10px] md:text-[11px] font-bold">

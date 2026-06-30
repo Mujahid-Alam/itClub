@@ -72,12 +72,12 @@ export default function Footer() {
             <h3 className="text-white font-semibold text-lg mb-6 relative after:absolute after:bottom-[-8px] after:left-0 after:w-8 after:h-[2px] after:bg-blue-500">
               Quick Links
             </h3>
-            <ul className="space-y-3 text-sm">
+            <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm lg:block lg:space-y-3">
               {["Home", "Who We Are", "Our Mission", "Media & Gallery", "Contact Us"].map((link) => (
-                <li key={link}>
+                <li key={link} className="lg:mb-3">
                   <a
                     href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
-                    className="hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
+                    className="inline-block transition-all duration-200 hover:text-[#FE9402] lg:hover:translate-x-1"
                   >
                     {link}
                   </a>
@@ -105,8 +105,9 @@ export default function Footer() {
                   <span className="text-blue-400">📞</span>
                   <span>+91 84097 44414</span>
                 </a>
-                <a href="tel:+918292999947" className="ml-6 hover:text-white transition-colors">
-                  +91 82929 99947
+                <a href="tel:+918292999947" className="flex items-center space-x-3 hover:text-white transition-colors">
+                  <span className="text-blue-400">📞</span>
+                  <span>+91 82929 99947</span>
                 </a>
               </li>
               <li className="flex items-center space-x-3">
@@ -117,51 +118,57 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+{/* Column 4: Newsletter & Socials */}
+<div>
+  <h3 className="text-white font-semibold text-lg mb-6 relative after:absolute after:bottom-[-8px] after:left-0 after:w-8 after:h-[2px] after:bg-[#FE9402]">
+    Newsletter
+  </h3>
 
-          {/* Column 4: Newsletter & Socials */}
-          <div>
-            <h3 className="text-white font-semibold text-lg mb-6 relative after:absolute after:bottom-[-8px] after:left-0 after:w-8 after:h-[2px] after:bg-blue-500">
-              Newsletter
-            </h3>
-            <p className="text-sm mb-4 text-gray-400">
-              Subscribe to stay updated with our latest initiatives.
-            </p>
-            <form className="flex flex-col sm:flex-row gap-2 mb-6" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="w-full bg-gray-900/60 border border-gray-800 text-white rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-blue-500 transition-colors placeholder:text-gray-600"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm px-5 py-2.5 rounded-lg transition-colors shadow-lg shadow-blue-600/10 cursor-pointer shrink-0"
-              >
-                Subscribe
-              </button>
-            </form>
+  <p className="text-sm mb-4 text-gray-400">
+    Subscribe to stay updated with our latest initiatives.
+  </p>
 
-            {/* सोशल लिंक्स ब्लॉक - टॉपबार वाले आइकन्स यहाँ सेट कर दिए हैं */}
-            <div>
-              <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">
-                Connect With Us
-              </h4>
-              <div className="flex flex-wrap gap-3">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    title={social.name}
-                    className={`w-10 h-10 flex items-center justify-center rounded-xl bg-gray-900/80 border border-gray-800 text-gray-400 transition-all duration-300 hover:-translate-y-1 shadow-md ${social.hoverClass}`}
-                  >
-                    {social.icon}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
+  <form
+    className="flex items-center gap-2 mb-6"
+    onSubmit={(e) => e.preventDefault()}
+  >
+    <input
+      type="email"
+      placeholder="Your email address"
+      className="flex-1 min-w-0 bg-gray-900/60 border border-gray-800 text-white rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#FE9402] transition-colors placeholder:text-gray-600"
+      required
+    />
+
+    <button
+      type="submit"
+      className="shrink-0 bg-[#FE9402] hover:bg-[#e88300] text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-all duration-300 shadow-lg shadow-[#FE9402]/20"
+    >
+      Subscribe
+    </button>
+  </form>
+
+  {/* Social Links */}
+  <div>
+    <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">
+      Connect With Us
+    </h4>
+
+    <div className="flex flex-wrap gap-3">
+      {socialLinks.map((social) => (
+        <a
+          key={social.name}
+          href={social.url}
+          target="_blank"
+          rel="noreferrer"
+          title={social.name}
+          className={`flex h-10 w-10 items-center justify-center rounded-xl border border-gray-800 bg-gray-900/80 text-gray-400 shadow-md transition-all duration-300 hover:-translate-y-1 ${social.hoverClass}`}
+        >
+          {social.icon}
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
 
         </div>
 
@@ -169,7 +176,17 @@ export default function Footer() {
         <div className="border-t border-gray-800/80 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
           <div>
             <p>© 2026 <span className="text-gray-300 font-medium">ITCLUB FOUNDATION</span>. All Rights Reserved.</p>
-            <p className="text-gray-600 mt-1">Designed by ITCLUB</p>
+            <p className="text-gray-600 mt-1">
+  Designed & Developed by{" "}
+  <a
+    href="https://www.linkedin.com/company/itclub-technologies-pvt-ltd/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="font-semibold transition-colors duration-300 hover:text-[#ff8701]"
+  >
+    ITCLUB TECHNOLOGIES PVT. LTD.
+  </a>
+</p>
           </div>
           
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-gray-500">
